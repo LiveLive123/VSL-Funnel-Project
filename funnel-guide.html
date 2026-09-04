@@ -119,6 +119,10 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 .check{padding-left:0}
 .check li{list-style:none;position:relative;padding-left:26px}
 .check li::before{content:"";position:absolute;left:0;top:6px;width:14px;height:14px;border:1.5px solid var(--line-2);border-radius:3px}
+.srcs{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:7px;font-size:13.5px;max-width:none}
+.srcs li{margin:0;padding-left:0;color:var(--muted)}
+.srcs li b{display:inline-block;min-width:11em;font-weight:600;color:inherit}
+@media (max-width:600px){.srcs li b{display:block;min-width:0;margin-bottom:2px}}
 .copy{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;margin:14px 0 18px;max-width:56ch}
 .copy .lbl{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
 .copy .h{font:700 24px/1.15 var(--display);letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
@@ -462,11 +466,11 @@ Then write three alternative openings (30 seconds each) for the same script, one
   <h3>What to sign up for, and when</h3>
   <div class="box decision">
     <p class="k">Timing beats discounts</p>
-    <p>There are no real GoHighLevel coupon codes &mdash; almost every "verified coupon" page is an affiliate link dressed as a discount. The genuine savings are free tiers, annual billing and first-month offers. What actually costs us money is starting a 14-day trial three weeks before anyone builds in it: research, hook testing, scripting and filming all happen first. Start each trial the day you need it. Sign up on the vendor’s own site — linked in the table below — rather than through a coupon page.</p>
+    <p>There are no real GoHighLevel coupon codes &mdash; almost every "verified coupon" page is an affiliate link dressed as a discount. The genuine savings are free tiers, annual billing, first-month offers, and the 30-day partner trial we are using instead of the standard 14 days. Even with 30 days, don’t start the clock early: research, hook testing, scripting and filming take about three weeks before anyone builds in GoHighLevel. Started on build-week day one, the 30 days covers the five build days, the vet and the test run, and roughly the first three weeks of ads &mdash; so the first invoice arrives at about the same time as the week-4 go/no-go. That is the decision to make before paying, not after. Everything else: sign up on the vendor’s own site, linked in the table below, rather than through a coupon page.</p>
   </div>
   <div class="tscroll"><table class="cost">
     <tr><th>Tool</th><th>What it does</th><th>Cost</th><th>Start it</th><th>Notes</th></tr>
-    <tr><td><a href="https://www.gohighlevel.com/">GoHighLevel Starter</a></td><td>Pages, survey, calendar, pipeline, email/SMS, workflows, documents &mdash; one login instead of five tools glued with Zapier</td><td>US$97/mo</td><td>Build week, day 1</td><td>14-day trial, card required; annual saves ~17&ndash;20%. Affiliate links carry a genuine 30-day trial &mdash; same product, no code, the partner earns a commission. David owns the agency account; the rest of us are users.</td></tr>
+    <tr><td><a href="https://www.gohighlevel.com/">GoHighLevel Starter</a></td><td>Pages, survey, calendar, pipeline, email/SMS, workflows, documents &mdash; one login instead of five tools glued with Zapier</td><td>US$97/mo</td><td>Build week, day 1</td><td><strong>We’re on the 30-day partner trial</strong>, not the standard 14 days &mdash; same product, no code to enter, the partner earns a commission. Card still required. Annual billing saves ~17&ndash;20% once we convert. David owns the agency account; the rest of us are users.</td></tr>
     <tr><td><a href="https://vidalytics.com/">Vidalytics Starter</a></td><td>Hosts the VSL, play rate, retention graph, resume-where-you-stopped</td><td>US$24/mo</td><td>When there's an MP4</td><td><strong>Changed:</strong> <a href="https://wistia.com/">Wistia</a>’s US$19 Plus tier no longer exists &mdash; it's Free, then Business at US$79, and the retention graph we read weekly sits in Business. Vidalytics Starter is unbranded, built for VSLs, 14-day trial. Cheaper answer to the same problem.</td></tr>
     <tr><td><a href="https://elevenlabs.io/">ElevenLabs Creator</a></td><td>The one saved Live Luxe voice for narrated sections</td><td>US$22/mo, US$11 first month</td><td>Script week</td><td>The free tier has no commercial rights and requires attribution, so it cannot be used on a page selling a service. Not optional.</td></tr>
     <tr><td><a href="https://claude.ai/">Claude Pro</a> or <a href="https://chatgpt.com/">ChatGPT Plus</a></td><td>Research, script drafts, ad images, the weekly report</td><td>US$20/mo</td><td>Now</td><td>Claude Pro drops to ~US$17 on annual.</td></tr>
@@ -480,7 +484,19 @@ Then write three alternative openings (30 seconds each) for the same script, one
   <p><strong>Running cost:</strong> GHL $97 + Vidalytics $24 + ElevenLabs $22 + Claude or ChatGPT $20 = <strong>~US$163/month</strong> (&asymp;A$250), plus A$50/day ad spend. That's about US$50/month less than the earlier plan, mostly from dropping HeyGen and Zoom Pro.</p>
   <div class="box note">
     <p class="k">Where the prices came from</p>
-    <p>Vendor pricing pages were blocked from this session's network, so every figure above comes from search results and third-party pricing trackers dated 2026. Confirm the number at checkout before David signs anything. GoHighLevel also runs 50% off three months at Black Friday &mdash; worth knowing, not worth delaying a September build for a November discount on a $97 tool.</p>
+    <p>Vendor pricing pages were unreachable when this was researched, so most figures come from third-party pricing trackers dated 2026, with the vendors' own pages used where they did load. Confirm the number at checkout before David signs anything. GoHighLevel also runs 50% off three months at Black Friday &mdash; worth knowing, not worth delaying a September build for a November discount on a $97 tool.</p>
+    <ul class="srcs">
+      <li><b>GoHighLevel</b> <a href="https://www.ruzuku.com/compare/gohighlevel-pricing">Pricing 2026, Ruzuku</a> &middot; <a href="https://automatethejourney.com/blog/gohighlevel-free-trial-2026">Free trial 2026, Automate the Journey</a> &middot; <a href="https://aigohighlevel.com/gohighlevel-coupon/">No coupon codes exist</a> &middot; <a href="https://globalhighlevel.com/blog/gohighlevel-promo-code-discount-2026-real-ways-to-save/">3 real ways to save</a></li>
+      <li><b>Wistia</b> <a href="https://wistia.com/pricing">Official pricing</a> &middot; <a href="https://swarmify.com/blog/wistia-pricing-explained/">Explained, Swarmify</a> &middot; <a href="https://www.gumlet.com/learn/wistia-pricing/">Pricing 2026, Gumlet</a></li>
+      <li><b>Vidalytics</b> <a href="https://www.xpay.sh/saas-pricing/vidalytics/">Pricing 2026, xpay</a> &middot; <a href="https://thinktanklab.com/vidalytics-review/">Review 2026, ThinkTankLab</a></li>
+      <li><b>ElevenLabs</b> <a href="https://elevenlabs.io/pricing">Official pricing</a> &middot; <a href="https://bigvu.tv/blog/elevenlabs-pricing-2026-plans-credits-commercial-rights-api-costs/">Credits and commercial rights, BIGVU</a></li>
+      <li><b>HeyGen</b> <a href="https://www.heygen.com/pricing">Official pricing</a> &middot; <a href="https://magichour.ai/blog/heygen-pricing">Pricing 2026, Magic Hour</a></li>
+      <li><b>Canva &amp; CapCut</b> <a href="https://www.stylefactoryproductions.com/blog/canva-free-trial">Canva free trial 2026, Style Factory</a> &middot; <a href="https://www.capcut.com/help/capcut-pro-free-trial">CapCut Pro trial, official help</a></li>
+      <li><b>Zoom</b> <a href="https://zoom.us/pricing">Official pricing</a> &middot; <a href="https://www.capterra.com.au/software/144037/zoom-video-conferencing">Australian pricing, Capterra</a></li>
+      <li><b>Google Workspace</b> <a href="https://medhacloud.com/blog/google-workspace-pricing-in-australia">Australian pricing 2026, Medha Cloud</a></li>
+      <li><b>Claude &amp; ChatGPT</b> <a href="https://www.cloudzero.com/blog/claude-pricing/">Claude pricing 2026, CloudZero</a> &middot; <a href="https://www.morphllm.com/chatgpt-vs-claude">ChatGPT vs Claude 2026, Morph</a></li>
+      <li><b>Ad spend</b> <a href="https://www.rockingweb.com.au/meta-ads-australia-benchmarks-2026/">Meta Ads Australia benchmarks 2026</a></li>
+    </ul>
   </div>
   <div class="box stop">
     <p class="k">Two things to sort before day one</p>
