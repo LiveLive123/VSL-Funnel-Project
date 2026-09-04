@@ -1,0 +1,584 @@
+<title>Building the Live Luxe Funnel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f5f6f4; --surface:#ffffff; --stage:#ffffff; --ink:#17201f; --ink-2:#3a4442; --muted:#66716e;
+  --line:#dde2df; --line-2:#c7cecb;
+  --accent:#164a46; --accent-soft:#e3efec; --accent-text:#164a46;
+  --amber:#a8690f; --amber-soft:#fbf1df; --amber-text:#7a4b06;
+  --rose-soft:#f7e6e4; --rose-text:#8a2f27;
+  --display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0d1211; --surface:#161d1b; --stage:#121917; --ink:#e7ebe9; --ink-2:#c3cbc8; --muted:#8e9a96;
+    --line:#26302d; --line-2:#37433f;
+    --accent:#5fb9ab; --accent-soft:#17302c; --accent-text:#8fd3c7;
+    --amber:#e0a34a; --amber-soft:#2d2214; --amber-text:#f1c98a;
+    --rose-soft:#33201e; --rose-text:#f0a49b;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0d1211; --surface:#161d1b; --stage:#121917; --ink:#e7ebe9; --ink-2:#c3cbc8; --muted:#8e9a96;
+  --line:#26302d; --line-2:#37433f;
+  --accent:#5fb9ab; --accent-soft:#17302c; --accent-text:#8fd3c7;
+  --amber:#e0a34a; --amber-soft:#2d2214; --amber-text:#f1c98a;
+  --rose-soft:#33201e; --rose-text:#f0a49b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent-text)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:28px 20px 60px}
+.hd{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;margin-bottom:14px}
+.hd h1{font:700 22px/1.2 var(--display);letter-spacing:-.015em;margin:0}
+.hd .sub{font:400 12.5px/1.5 var(--mono);color:var(--muted)}
+
+.stage{position:relative;aspect-ratio:16/9;background:var(--stage);border:1px solid var(--line-2);border-radius:8px;overflow:hidden}
+.scene{position:absolute;inset:0;padding:5% 6%;display:none;flex-direction:column;justify-content:center;gap:2%}
+.scene.is-live{display:flex}
+.scene .k{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin:0}
+.scene h2{font:700 clamp(20px,3.4vw,34px)/1.12 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance;max-width:20ch}
+.scene h2.sm{font-size:clamp(17px,2.5vw,26px);max-width:26ch}
+.scene p{margin:0;font-size:clamp(12px,1.55vw,16px);color:var(--ink-2);max-width:60ch}
+.scene .big{font:600 clamp(16px,2.5vw,26px)/1.3 var(--display);color:var(--ink);max-width:24ch;text-wrap:balance}
+.scene ul{margin:0;padding-left:1.1em;font-size:clamp(11.5px,1.5vw,16px);color:var(--ink-2);display:flex;flex-direction:column;gap:.45em}
+.scene li::marker{color:var(--muted)}
+.scene .note{font-size:clamp(10.5px,1.25vw,13px);color:var(--muted)}
+.scene figure{margin:0;flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.scene svg{width:100%;height:auto;max-height:100%;display:block}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4%}
+.cards > div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:2.2% 2.6%}
+.cards .d{font:500 clamp(9px,1.05vw,11.5px)/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:.5em}
+.cards .t{font:600 clamp(12px,1.55vw,16px)/1.25 var(--display);margin-bottom:.35em}
+.cards .s{font-size:clamp(9.5px,1.15vw,12.5px);color:var(--muted);line-height:1.4}
+.rows{display:flex;flex-direction:column;gap:.5em;font-size:clamp(11px,1.45vw,15px)}
+.rows div{display:flex;gap:1em;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:.45em}
+.rows b{font-weight:600;min-width:9em}
+.rows span{color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:.85em}
+.split{display:grid;grid-template-columns:1.02fr .98fr;gap:4%;align-items:center;flex:1;min-height:0}
+.split ul{margin:0}
+.split figure{flex:none}
+@media (max-width:560px){.split{grid-template-columns:1fr;gap:2%}.split figure{display:none}}
+.chip{display:inline-block;background:var(--amber-soft);color:var(--amber-text);border-radius:4px;padding:.35em .6em;font:500 clamp(10px,1.2vw,13px)/1 var(--mono)}
+.end{align-items:flex-start}
+.end .links{display:flex;flex-direction:column;gap:.5em;font-size:clamp(11px,1.4vw,15px)}
+
+/* motion */
+.anim{opacity:0;transform:translateY(10px)}
+.is-live .anim{opacity:1;transform:none;transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.3,1);transition-delay:calc(var(--i,0) * .13s)}
+@media (prefers-reduced-motion:reduce){.anim,.is-live .anim{opacity:1;transform:none;transition:none}}
+
+.ctl{display:flex;align-items:center;gap:14px;margin-top:12px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.play{width:44px;height:44px;flex:none;border-radius:50%;background:var(--accent);color:var(--ground);display:grid;place-items:center}
+.play svg{width:17px;height:17px;fill:currentColor}
+.step{color:var(--muted);font-size:13px;padding:6px 4px}
+.step:hover{color:var(--ink)}
+.track{flex:1;height:5px;background:var(--line);border-radius:999px;position:relative;cursor:pointer}
+.track i{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent);border-radius:999px}
+.track b{position:absolute;top:-3px;width:1px;height:11px;background:var(--ground);opacity:.9}
+.time{font:500 12.5px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.chapters{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+.chapters button{font:500 11.5px/1 var(--mono);letter-spacing:.03em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 9px}
+.chapters button:hover{color:var(--ink);border-color:var(--line-2)}
+.chapters button[aria-current="true"]{background:var(--accent-soft);color:var(--accent-text);border-color:transparent}
+footer{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);max-width:72ch}
+</style>
+
+<div class="wrap">
+  <div class="hd">
+    <h1>Building the Live Luxe owner funnel</h1>
+    <span class="sub">15 chapters &middot; 2 min 47 s</span>
+  </div>
+
+  <div class="stage" id="stage">
+
+    <section class="scene is-live" data-dur="7" data-ch="Title">
+      <p class="k anim" style="--i:0">Live Luxe &middot; owner acquisition</p>
+      <h2 class="anim" style="--i:1">What we&rsquo;re building, and the five days that build it</h2>
+      <p class="anim" style="--i:2">Ads send Melbourne apartment owners to a page with a short video of Daniel and one guarantee. They answer six questions, book a call, Daniel closes.</p>
+      <p class="note anim" style="--i:3">4 September 2026 &middot; nothing is built yet</p>
+    </section>
+
+    <section class="scene" data-dur="10" data-ch="The offer">
+      <p class="k anim" style="--i:0">Chapter 1 &middot; the offer</p>
+      <p class="big anim" style="--i:1">&ldquo;Live Luxe will earn you more than your long-term rent within 12 months &mdash; or we pay you the difference plus $10,000.&rdquo;</p>
+      <p class="anim" style="--i:2">It attacks the one fear that stops landlords switching: <em>what if short-stay earns less than my reliable tenant?</em> Everything else in the funnel stays sober so this line can be bold.</p>
+    </section>
+
+    <section class="scene" data-dur="15" data-ch="The flow">
+      <p class="k anim" style="--i:0">Chapter 2 &middot; how a lead moves</p>
+      <figure class="anim" style="--i:1">
+        <svg viewBox="0 0 880 300" role="img" aria-label="Meta ads lead to the VSL page with the survey on it; qualified owners reach the booking calendar then a thank-you page; owners who do not qualify get a sorry page; qualified owners who do not book get an email, an SMS and a same-day call from Daniel." font-family="IBM Plex Sans, Segoe UI, sans-serif">
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+          <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#ar)">
+            <path d="M112,110 L160,110"/><path d="M312,110 L360,110"/><path d="M512,110 L560,110"/><path d="M712,110 L760,110"/>
+            <path d="M436,150 L436,205"/><path d="M236,150 L236,205"/><path d="M312,240 L360,240"/><path d="M512,240 L560,240"/>
+          </g>
+          <g font-size="12.5" fill="var(--ink)">
+            <rect x="12" y="70" width="100" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+            <text x="62" y="103" text-anchor="middle" font-weight="600">Meta ads</text>
+            <text x="62" y="122" text-anchor="middle" fill="var(--muted)" font-size="11.5">owner-targeted</text>
+            <rect x="160" y="70" width="152" height="80" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <text x="236" y="97" text-anchor="middle" font-weight="600" fill="var(--accent-text)">VSL page</text>
+            <text x="236" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">Daniel&rsquo;s video</text>
+            <text x="236" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">survey on the same page</text>
+            <rect x="360" y="70" width="152" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+            <text x="436" y="97" text-anchor="middle" font-weight="600">Survey qualifies</text>
+            <text x="436" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">six questions,</text>
+            <text x="436" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">contact details last</text>
+            <rect x="560" y="70" width="152" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+            <text x="636" y="97" text-anchor="middle" font-weight="600">Booking page</text>
+            <text x="636" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">&ldquo;You&rsquo;re pre-qualified&rdquo;</text>
+            <text x="636" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">pick a time with Daniel</text>
+            <rect x="760" y="70" width="108" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+            <text x="814" y="103" text-anchor="middle" font-weight="600">Thank-you</text>
+            <text x="814" y="122" text-anchor="middle" fill="var(--muted)" font-size="11.5">&ldquo;confirm your call&rdquo;</text>
+            <rect x="160" y="205" width="152" height="70" rx="6" fill="var(--rose-soft)" stroke="none"/>
+            <text x="236" y="233" text-anchor="middle" font-weight="600" fill="var(--rose-text)">Not qualified</text>
+            <text x="236" y="252" text-anchor="middle" fill="var(--rose-text)" font-size="11.5">polite sorry page</text>
+            <rect x="360" y="205" width="152" height="70" rx="6" fill="var(--amber-soft)" stroke="none"/>
+            <text x="436" y="228" text-anchor="middle" font-weight="600" fill="var(--amber-text)">Qualified, didn&rsquo;t book</text>
+            <text x="436" y="246" text-anchor="middle" fill="var(--amber-text)" font-size="11.5">email in 30 min &middot; SMS</text>
+            <text x="436" y="262" text-anchor="middle" fill="var(--amber-text)" font-size="11.5">Daniel calls same day</text>
+            <rect x="560" y="205" width="152" height="70" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+            <text x="636" y="233" text-anchor="middle" font-weight="600">The call</text>
+            <text x="636" y="252" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">Daniel closes &rarr; onboarding</text>
+          </g>
+        </svg>
+      </figure>
+      <p class="note anim" style="--i:2">Five pages, four automations, one human. The bottom row is where lost deals are: qualified owners who didn&rsquo;t book get chased the same day.</p>
+    </section>
+
+    <section class="scene" data-dur="15" data-ch="The stack">
+      <p class="k anim" style="--i:0">Chapter 3 &middot; what sits on what</p>
+      <figure class="anim" style="--i:1">
+        <svg viewBox="0 0 900 540" role="img" aria-label="Three DNS records carry one GoHighLevel sub-account, which holds the five pages and the contacts, pipeline, workflows and messaging behind them. Meta, the phone number, the video host and Daniel's calendar plug in at the sides; a weekly report reads three APIs at the top." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="12">
+          <defs><marker id="sk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+          <rect x="250" y="30" width="400" height="60" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+          <text x="450" y="55" text-anchor="middle" font-weight="600" fill="var(--ink)">Weekly report</text>
+          <text x="450" y="74" text-anchor="middle" font-size="11" fill="var(--muted)">Claude reads three APIs every Monday</text>
+          <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#sk)">
+            <path d="M85,200 L85,110 L300,110 L300,92"/><path d="M815,200 L815,110 L600,110 L600,92"/><path d="M450,150 L450,92"/>
+          </g>
+          <g font-size="10" fill="var(--muted)">
+            <text x="200" y="104" text-anchor="middle">spend, CPL, CPBC</text>
+            <text x="700" y="104" text-anchor="middle">play %, retention</text>
+            <text x="458" y="126">leads, booked, show, close</text>
+          </g>
+          <rect x="210" y="150" width="480" height="240" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+          <text x="450" y="174" text-anchor="middle" font-weight="600" fill="var(--accent-text)">GoHighLevel sub-account &middot; Live Luxe &ndash; Owners</text>
+          <text x="450" y="192" text-anchor="middle" font-size="10.5" fill="var(--ink-2)">Melbourne time, AUD &middot; David owns it &middot; Jivonz builds &middot; Daniel works it</text>
+          <text x="222" y="214" font-family="IBM Plex Mono, Consolas, monospace" font-size="10" letter-spacing="1.2" fill="var(--muted)">WHAT OWNERS SEE</text>
+          <g font-size="10.5" fill="var(--ink-2)">
+            <rect x="222" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="266" y="239" text-anchor="middle">VSL page</text>
+            <rect x="314" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="358" y="239" text-anchor="middle">Survey</text>
+            <rect x="406" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="450" y="239" text-anchor="middle">Booking</text>
+            <rect x="498" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="542" y="239" text-anchor="middle">Thank-you</text>
+            <rect x="590" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="634" y="239" text-anchor="middle">Sorry</text>
+          </g>
+          <text x="222" y="274" font-family="IBM Plex Mono, Consolas, monospace" font-size="10" letter-spacing="1.2" fill="var(--muted)">WHAT RUNS BEHIND THEM</text>
+          <g font-size="10.5" fill="var(--ink-2)">
+            <rect x="222" y="280" width="111" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="277" y="299" text-anchor="middle">Contacts + fields</text>
+            <rect x="337" y="280" width="111" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="392" y="299" text-anchor="middle">Pipeline</text>
+            <rect x="452" y="280" width="111" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="507" y="299" text-anchor="middle">Workflows W1&ndash;W4</text>
+            <rect x="567" y="280" width="111" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="622" y="299" text-anchor="middle">Email + SMS</text>
+          </g>
+          <text x="450" y="340" text-anchor="middle" font-size="11" fill="var(--ink-2)">One login holds the pages, the CRM, the calendar and every message we send.</text>
+          <text x="450" y="358" text-anchor="middle" font-size="11" fill="var(--muted)">The alternative was five tools joined by Zapier, each with its own bill.</text>
+          <rect x="20" y="200" width="130" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+          <text x="85" y="224" text-anchor="middle" font-weight="600" fill="var(--ink)">Meta Ads</text>
+          <text x="85" y="242" text-anchor="middle" font-size="10.5" fill="var(--muted)">pixel + Conversions API</text>
+          <text x="85" y="260" text-anchor="middle" font-size="10.5" fill="var(--muted)">David owns, Jivonz admin</text>
+          <rect x="20" y="300" width="130" height="60" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+          <text x="85" y="324" text-anchor="middle" font-weight="600" fill="var(--ink)">LC Phone number</text>
+          <text x="85" y="342" text-anchor="middle" font-size="10.5" fill="var(--muted)">forwards to Daniel</text>
+          <rect x="750" y="200" width="130" height="60" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+          <text x="815" y="224" text-anchor="middle" font-weight="600" fill="var(--ink)">Video host</text>
+          <text x="815" y="242" text-anchor="middle" font-size="10.5" fill="var(--muted)">Vidalytics</text>
+          <rect x="750" y="280" width="130" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+          <text x="815" y="304" text-anchor="middle" font-weight="600" fill="var(--ink)">Google Calendar</text>
+          <text x="815" y="322" text-anchor="middle" font-size="10.5" fill="var(--muted)">+ Zoom</text>
+          <text x="815" y="340" text-anchor="middle" font-size="10.5" fill="var(--muted)">Daniel&rsquo;s logins</text>
+          <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#sk)">
+            <path d="M150,222 L206,222"/><path d="M210,252 L154,252"/><path d="M150,330 L206,330"/>
+            <path d="M750,230 L694,230"/><path d="M690,320 L746,320"/><path d="M450,430 L450,394"/>
+          </g>
+          <g font-size="10" fill="var(--muted)">
+            <text x="180" y="216" text-anchor="middle">ad clicks</text>
+            <text x="180" y="246" text-anchor="middle">CAPI events</text>
+            <text x="180" y="324" text-anchor="middle">SMS + calls</text>
+            <text x="720" y="224" text-anchor="middle">embed code</text>
+            <text x="718" y="314" text-anchor="middle">one-way sync</text>
+            <text x="458" y="416">resolves to</text>
+          </g>
+          <rect x="210" y="430" width="480" height="90" rx="6" fill="var(--amber-soft)" stroke="none"/>
+          <text x="450" y="454" text-anchor="middle" font-weight="600" fill="var(--amber-text)">liveluxe.com.au &mdash; the DNS zone, in GoDaddy</text>
+          <text x="450" y="471" text-anchor="middle" font-size="10.5" fill="var(--amber-text)">Terence Mok&rsquo;s account, not ours. Nothing above exists until he adds these.</text>
+          <g font-size="10.5" fill="var(--ink-2)">
+            <rect x="222" y="482" width="148" height="28" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="296" y="500" text-anchor="middle">owners. &rarr; the pages</text>
+            <rect x="376" y="482" width="148" height="28" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="450" y="500" text-anchor="middle">lc. &rarr; email sending</text>
+            <rect x="530" y="482" width="148" height="28" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="604" y="500" text-anchor="middle">root TXT &rarr; Meta</text>
+          </g>
+        </svg>
+      </figure>
+    </section>
+
+    <section class="scene" data-dur="11" data-ch="Before day one">
+      <p class="k anim" style="--i:0">Chapter 4 &middot; before anyone builds anything</p>
+      <h2 class="sm anim" style="--i:1">Three things have to be true first</h2>
+      <ul>
+        <li class="anim" style="--i:2"><b>David decides the offer.</b> What &ldquo;beat your rent&rdquo; measures, whether the $10k is on top of the shortfall or the cap, who qualifies, and the fee we say out loud.</li>
+        <li class="anim" style="--i:3"><b>We can edit the DNS.</b> The zone is in Terence Mok&rsquo;s GoDaddy account. Two records. This is the step most likely to stall.</li>
+        <li class="anim" style="--i:4"><b>Jivonz has Meta admin.</b> No pixel, no domain verification, no Conversions API without it.</li>
+      </ul>
+      <p class="note anim" style="--i:5">All three are free and none of them need the funnel to exist. Start them today.</p>
+    </section>
+
+    <section class="scene" data-dur="12" data-ch="Four weeks">
+      <p class="k anim" style="--i:0">Chapter 5 &middot; the shape of the four weeks</p>
+      <div class="rows">
+        <div class="anim" style="--i:1"><b>Research</b>Six answers about us, and owners&rsquo; own words from the forums<span>2 days</span></div>
+        <div class="anim" style="--i:2"><b>Test the hook</b>Five image ads; the cheapest lead wins and becomes the opening<span>1 week</span></div>
+        <div class="anim" style="--i:3"><b>Script</b>Copy one proven VSL&rsquo;s structure, three drafts, edit one<span>3 days</span></div>
+        <div class="anim" style="--i:4"><b>Film</b>Daniel on camera in a premium apartment; AI voice for the numbers<span>1 + 3 days</span></div>
+        <div class="anim" style="--i:5"><b>Build</b>The five GoHighLevel days &mdash; the rest of this walkthrough<span>5 days</span></div>
+        <div class="anim" style="--i:6"><b>Vet, test, launch</b>David&rsquo;s VSL contact reviews, every path tested, ads on<span>3 days</span></div>
+      </div>
+      <p class="note anim" style="--i:7">Filming comes after the hook test on purpose: no one polishes a video around an angle nobody clicked.</p>
+    </section>
+
+    <section class="scene" data-dur="10" data-ch="Build days">
+      <p class="k anim" style="--i:0">Chapter 6 &middot; the build</p>
+      <h2 class="sm anim" style="--i:1">Assets first, pages second, automations last</h2>
+      <div class="cards">
+        <div class="anim" style="--i:2"><div class="d">Day 1</div><div class="t">Foundations</div><div class="s">Account, users, domain, sending domain, phone, policy pages</div></div>
+        <div class="anim" style="--i:3"><div class="d">Day 2</div><div class="t">Assets</div><div class="s">Pipeline, custom fields, survey, feedback form, calendar, video</div></div>
+        <div class="anim" style="--i:4"><div class="d">Day 3&ndash;4</div><div class="t">Pages</div><div class="s">Five funnel steps, mobile pass, metadata, pixel in the header</div></div>
+        <div class="anim" style="--i:5"><div class="d">Day 5</div><div class="t">Automations</div><div class="s">Four workflows, conversion events, the full test run</div></div>
+      </div>
+      <p class="note anim" style="--i:6">The pages only hold the assets, and the workflows only move what the pages collect. Build in that order and nothing waits on anything.</p>
+    </section>
+
+    <section class="scene" data-dur="11" data-ch="Day 1">
+      <p class="k anim" style="--i:0">Day 1 &middot; foundations</p>
+      <h2 class="sm anim" style="--i:1">Nothing visible, everything depends on it</h2>
+      <div class="split">
+        <ul>
+          <li class="anim" style="--i:2">One sub-account, Melbourne time, AUD. Four users &mdash; Daniel connects his own calendar and Zoom, one-way only.</li>
+          <li class="anim" style="--i:3">Two subdomains off the zone. Never the root: that is where live mail lives.</li>
+          <li class="anim" style="--i:4">One Australian number forwarded to Daniel. Privacy and terms published.</li>
+        </ul>
+        <figure class="anim" style="--i:5">
+          <svg viewBox="0 0 420 250" role="img" aria-label="The liveluxe.com.au DNS zone splits three ways: the root keeps its existing mail records and must not be touched; the owners subdomain points at the GoHighLevel pages; the lc subdomain carries six records for email sending." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="11">
+            <defs><marker id="d1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+            <rect x="120" y="10" width="180" height="38" rx="5" fill="var(--surface)" stroke="var(--line-2)"/>
+            <text x="210" y="27" text-anchor="middle" font-weight="600" fill="var(--ink)">liveluxe.com.au</text>
+            <text x="210" y="41" text-anchor="middle" font-size="9.5" fill="var(--muted)">the DNS zone, in GoDaddy</text>
+            <g fill="none" stroke="var(--line-2)" stroke-width="1.4" marker-end="url(#d1)">
+              <path d="M210,48 L210,66 L80,66 L80,84"/>
+              <path d="M210,48 L210,84"/>
+              <path d="M210,48 L210,66 L340,66 L340,84"/>
+            </g>
+            <rect x="10" y="84" width="140" height="60" rx="5" fill="var(--rose-soft)" stroke="none"/>
+            <text x="80" y="104" text-anchor="middle" font-weight="600" fill="var(--rose-text)">root &mdash; leave alone</text>
+            <text x="80" y="120" text-anchor="middle" font-size="9.5" fill="var(--rose-text)">MX &middot; SPF &middot; DKIM</text>
+            <text x="80" y="134" text-anchor="middle" font-size="9.5" fill="var(--rose-text)">live Workspace mail</text>
+            <rect x="152" y="84" width="116" height="60" rx="5" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <text x="210" y="104" text-anchor="middle" font-weight="600" fill="var(--accent-text)">owners.</text>
+            <text x="210" y="120" text-anchor="middle" font-size="9.5" fill="var(--ink-2)">one CNAME</text>
+            <text x="210" y="134" text-anchor="middle" font-size="9.5" fill="var(--ink-2)">&rarr; the five pages</text>
+            <rect x="278" y="84" width="132" height="60" rx="5" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <text x="344" y="104" text-anchor="middle" font-weight="600" fill="var(--accent-text)">lc.</text>
+            <text x="344" y="120" text-anchor="middle" font-size="9.5" fill="var(--ink-2)">six records</text>
+            <text x="344" y="134" text-anchor="middle" font-size="9.5" fill="var(--ink-2)">&rarr; email sending</text>
+            <rect x="10" y="176" width="400" height="60" rx="5" fill="var(--amber-soft)" stroke="none"/>
+            <text x="210" y="197" text-anchor="middle" font-weight="600" fill="var(--amber-text)">Warm-up rule</text>
+            <text x="210" y="214" text-anchor="middle" font-size="10" fill="var(--amber-text)">300 sends on day one, doubling daily.</text>
+            <text x="210" y="228" text-anchor="middle" font-size="10" fill="var(--amber-text)">Do not import the old owner list and email it from here.</text>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="scene" data-dur="11" data-ch="Day 2">
+      <p class="k anim" style="--i:0">Day 2 &middot; assets</p>
+      <h2 class="sm anim" style="--i:1">Six questions, three of which can end it</h2>
+      <div class="split">
+        <ul>
+          <li class="anim" style="--i:2">Eleven custom fields built <em>before</em> the survey, so the builder just drags them in.</li>
+          <li class="anim" style="--i:3">Radio buttons, never free text, for anything that decides whether someone qualifies.</li>
+          <li class="anim" style="--i:4">Contact details last, with a reason line. Partial submissions still create a contact, so an abandoned survey leaves Daniel a name.</li>
+        </ul>
+        <figure class="anim" style="--i:5">
+          <svg viewBox="0 0 420 250" role="img" aria-label="The survey asks seven things in order: own an apartment, where, current situation, available from, weekly rent, furnished, then contact details. Questions one, two and five can send the owner to the sorry page; finishing sends them to the booking page." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="10.5">
+            <defs><marker id="d2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+            <g>
+              <rect x="8" y="8" width="200" height="26" rx="4" fill="var(--surface)" stroke="var(--line-2)"/><text x="20" y="25" fill="var(--ink)">1 &middot; Own a Melbourne apartment?</text>
+              <rect x="8" y="40" width="200" height="26" rx="4" fill="var(--surface)" stroke="var(--line-2)"/><text x="20" y="57" fill="var(--ink)">2 &middot; Which area?</text>
+              <rect x="8" y="72" width="200" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="20" y="89" fill="var(--ink-2)">3 &middot; Current situation</text>
+              <rect x="8" y="104" width="200" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="20" y="121" fill="var(--ink-2)">4 &middot; Available from</text>
+              <rect x="8" y="136" width="200" height="26" rx="4" fill="var(--surface)" stroke="var(--line-2)"/><text x="20" y="153" fill="var(--ink)">5 &middot; Weekly rent band</text>
+              <rect x="8" y="168" width="200" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="20" y="185" fill="var(--ink-2)">6 &middot; Furnished?</text>
+              <rect x="8" y="200" width="200" height="26" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/><text x="20" y="217" fill="var(--accent-text)">7 &middot; Name, email, mobile</text>
+            </g>
+            <g fill="none" stroke="var(--line-2)" stroke-width="1.3" marker-end="url(#d2)">
+              <path d="M208,21 L268,21 L268,74"/>
+              <path d="M208,53 L248,53 L248,74"/>
+              <path d="M208,149 L288,149 L288,110"/>
+              <path d="M208,213 L300,213"/>
+            </g>
+            <rect x="238" y="74" width="130" height="36" rx="5" fill="var(--rose-soft)" stroke="none"/>
+            <text x="303" y="90" text-anchor="middle" font-weight="600" fill="var(--rose-text)">Sorry page</text>
+            <text x="303" y="103" text-anchor="middle" font-size="9.5" fill="var(--rose-text)">tag, ask the lease date</text>
+            <rect x="300" y="196" width="112" height="36" rx="5" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <text x="356" y="212" text-anchor="middle" font-weight="600" fill="var(--accent-text)">Booking page</text>
+            <text x="356" y="225" text-anchor="middle" font-size="9.5" fill="var(--ink-2)">Daniel&rsquo;s calendar</text>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="scene" data-dur="11" data-ch="Day 3–4">
+      <p class="k anim" style="--i:0">Days 3&ndash;4 &middot; pages</p>
+      <h2 class="sm anim" style="--i:1">One page, one road, no exits</h2>
+      <div class="split">
+        <ul>
+          <li class="anim" style="--i:2">No navigation and no outbound links. The button scrolls to the survey sitting on the same page.</li>
+          <li class="anim" style="--i:3">No email gate before the video. They watch first, apply second.</li>
+          <li class="anim" style="--i:4">A clone at <code>/apply-ads</code> so headlines can be tested without touching the original.</li>
+        </ul>
+        <figure class="anim" style="--i:5">
+          <svg viewBox="0 0 420 250" role="img" aria-label="The VSL page from top to bottom: an eyebrow reading Melbourne apartment owners only, the headline carrying the guarantee, the video, one button, the survey, a proof row, and a footer with policy links." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="10">
+            <defs><marker id="d3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+            <rect x="96" y="6" width="200" height="238" rx="7" fill="var(--surface)" stroke="var(--line-2)"/>
+            <rect x="110" y="18" width="76" height="12" rx="6" fill="var(--amber-soft)"/>
+            <text x="148" y="27" text-anchor="middle" font-size="7.5" fill="var(--amber-text)">OWNERS ONLY</text>
+            <rect x="110" y="38" width="172" height="9" rx="2" fill="var(--line-2)"/>
+            <rect x="110" y="51" width="140" height="9" rx="2" fill="var(--line-2)"/>
+            <rect x="110" y="64" width="110" height="9" rx="2" fill="var(--accent)" opacity=".65"/>
+            <rect x="110" y="82" width="172" height="62" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <circle cx="196" cy="113" r="13" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+            <path d="M192,107 L203,113 L192,119 z" fill="var(--accent)"/>
+            <rect x="132" y="152" width="128" height="20" rx="4" fill="var(--accent)"/>
+            <text x="196" y="166" text-anchor="middle" font-size="9" fill="var(--ground)">See if your apartment qualifies</text>
+            <rect x="110" y="182" width="172" height="34" rx="4" fill="var(--surface)" stroke="var(--line-2)" stroke-dasharray="3 2"/>
+            <text x="196" y="196" text-anchor="middle" font-size="8" fill="var(--muted)">APPLY NOW</text>
+            <text x="196" y="209" text-anchor="middle" font-size="9" fill="var(--ink-2)">the survey, same page</text>
+            <rect x="110" y="222" width="40" height="14" rx="2" fill="var(--line)"/>
+            <rect x="154" y="222" width="40" height="14" rx="2" fill="var(--line)"/>
+            <rect x="198" y="222" width="40" height="14" rx="2" fill="var(--line)"/>
+            <rect x="242" y="222" width="40" height="14" rx="2" fill="var(--line)"/>
+            <g fill="none" stroke="var(--line-2)" stroke-width="1.2" marker-end="url(#d3)"><path d="M330,162 L300,182"/></g>
+            <text x="334" y="159" font-size="9" fill="var(--muted)">scrolls, never</text>
+            <text x="334" y="171" font-size="9" fill="var(--muted)">leaves the page</text>
+            <text x="88" y="115" text-anchor="end" font-size="9" fill="var(--muted)">no email gate</text>
+            <text x="88" y="127" text-anchor="end" font-size="9" fill="var(--muted)">before the video</text>
+            <text x="88" y="231" text-anchor="end" font-size="9" fill="var(--muted)">proof row</text>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="scene" data-dur="12" data-ch="Day 5">
+      <p class="k anim" style="--i:0">Day 5 &middot; automations</p>
+      <h2 class="sm anim" style="--i:1">The 30 minutes that decide the month</h2>
+      <div class="split">
+        <ul>
+          <li class="anim" style="--i:2">W1 waits half an hour. Booked in that window and it stops dead; not booked and the chase starts.</li>
+          <li class="anim" style="--i:3">W2 confirms and reminds at 24 hours, 2 hours and 15 minutes. W3 catches cancellations and no-shows.</li>
+          <li class="anim" style="--i:4">W4 is Daniel&rsquo;s one-question form &mdash; it moves the card so nobody does it by hand.</li>
+        </ul>
+        <figure class="anim" style="--i:5">
+          <svg viewBox="0 0 420 250" role="img" aria-label="Workflow one on a timeline: at zero minutes the survey creates the card and notifies Daniel; after thirty minutes, a booking stops the workflow, while no booking moves the card to qualified-not-booked and sends an email, then an SMS at one hour and a task for Daniel, an email at one day and another at three days before the lead goes to nurture." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="10">
+            <line x1="30" y1="60" x2="30" y2="228" stroke="var(--line-2)" stroke-width="1.5"/>
+            <g>
+              <circle cx="30" cy="70" r="4.5" fill="var(--accent)"/>
+              <text x="46" y="66" font-weight="600" fill="var(--ink)">0 min &mdash; survey in</text>
+              <text x="46" y="80" fill="var(--muted)">tag, assign Daniel, card, email him the answers</text>
+            </g>
+            <g>
+              <circle cx="30" cy="112" r="4.5" fill="var(--amber)"/>
+              <text x="46" y="108" font-weight="600" fill="var(--ink)">30 min &mdash; the fork</text>
+            </g>
+            <rect x="234" y="94" width="178" height="30" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+            <text x="323" y="106" text-anchor="middle" font-size="9.5" fill="var(--accent-text)">Booked a time?</text>
+            <text x="323" y="118" text-anchor="middle" font-size="9.5" fill="var(--ink-2)">W1 stops. W2 takes over.</text>
+            <g>
+              <circle cx="30" cy="150" r="4.5" fill="var(--amber)"/>
+              <text x="46" y="146" font-weight="600" fill="var(--amber-text)">Didn&rsquo;t book</text>
+              <text x="46" y="160" fill="var(--muted)">card &rarr; Qualified, not booked</text>
+            </g>
+            <g>
+              <circle cx="30" cy="188" r="4.5" fill="var(--muted)"/>
+              <text x="46" y="184" font-weight="600" fill="var(--ink)">1 hour</text>
+              <text x="46" y="198" fill="var(--muted)">SMS from Daniel, and a task: call today</text>
+            </g>
+            <g>
+              <circle cx="30" cy="222" r="4.5" fill="var(--muted)"/>
+              <text x="46" y="218" font-weight="600" fill="var(--ink)">1 day, then 3 days</text>
+              <text x="46" y="232" fill="var(--muted)">two more emails, then long-term nurture</text>
+            </g>
+            <rect x="234" y="140" width="178" height="30" rx="4" fill="var(--amber-soft)" stroke="none"/>
+            <text x="323" y="152" text-anchor="middle" font-size="9.5" fill="var(--amber-text)">This branch is where</text>
+            <text x="323" y="164" text-anchor="middle" font-size="9.5" fill="var(--amber-text)">the lost deals are.</text>
+            <text x="30" y="26" font-family="IBM Plex Mono, Consolas, monospace" font-size="9" letter-spacing="1.2" fill="var(--muted)">W1 &middot; SURVEY SUBMITTED</text>
+            <text x="30" y="44" font-size="10" fill="var(--ink-2)">One workflow, two futures.</text>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="scene" data-dur="11" data-ch="Test run">
+      <p class="k anim" style="--i:0">Chapter 7 &middot; before a dollar is spent</p>
+      <h2 class="sm anim" style="--i:1">Walk every path with a real phone</h2>
+      <ul>
+        <li class="anim" style="--i:2">The qualified path end to end, in incognito: card created, Daniel assigned, email and SMS arriving, the event on his calendar, the conversion in Events Manager.</li>
+        <li class="anim" style="--i:3">Then the ugly ones &mdash; disqualified, didn&rsquo;t book, cancelled, no-show, and replying STOP to an SMS.</li>
+        <li class="anim" style="--i:4">David walks the whole thing on his own phone. Every video plays, every page fits, every caption reads.</li>
+      </ul>
+      <p class="note anim" style="--i:5">Then delete the test contacts and leave the workflows published.</p>
+    </section>
+
+    <section class="scene" data-dur="11" data-ch="Live">
+      <p class="k anim" style="--i:0">Chapter 8 &middot; live, and what we watch</p>
+      <div class="rows">
+        <div class="anim" style="--i:1"><b>Play rate</b>Pressed play &divide; visits<span>over 30%</span></div>
+        <div class="anim" style="--i:2"><b>Retention</b>A cliff in the first 20 seconds means fix the opening<span>no cliff</span></div>
+        <div class="anim" style="--i:3"><b>Cost per booked call</b>What the ads actually optimise against<span>the number</span></div>
+        <div class="anim" style="--i:4"><b>Show &amp; close rate</b>Attended &divide; booked, then agreements &divide; attended<span>Daniel</span></div>
+        <div class="anim" style="--i:5"><b>Cost per owner signed</b>Against one apartment&rsquo;s first-year fee<span>the test</span></div>
+      </div>
+      <p class="note anim" style="--i:6">Three ads at $50/day, one change tested per week, and a go/no-go at week four.</p>
+    </section>
+
+    <section class="scene" data-dur="11" data-ch="Cost">
+      <p class="k anim" style="--i:0">Chapter 9 &middot; what it costs</p>
+      <div class="rows">
+        <div class="anim" style="--i:1"><b>GoHighLevel</b>Pages, CRM, calendar, messaging, automations<span>US$97</span></div>
+        <div class="anim" style="--i:2"><b>Vidalytics</b>Hosting and the retention graph<span>US$24</span></div>
+        <div class="anim" style="--i:3"><b>ElevenLabs</b>The narrated sections<span>US$22</span></div>
+        <div class="anim" style="--i:4"><b>Claude / ChatGPT</b>Research, drafts, the weekly report<span>US$20</span></div>
+        <div class="anim" style="--i:5"><b>Every month</b>Plus A$50/day in ads<span>&asymp;A$250</span></div>
+      </div>
+      <p class="anim" style="--i:6"><span class="chip">Start the GoHighLevel trial on build-week day one</span></p>
+      <p class="note anim" style="--i:7">We&rsquo;re on the 30-day partner trial. Started then, it covers the build, the test run and three weeks of ads &mdash; so the first invoice lands at the same time as the go/no-go.</p>
+    </section>
+
+    <section class="scene end" data-dur="9" data-ch="End">
+      <p class="k anim" style="--i:0">That&rsquo;s the whole build</p>
+      <h2 class="sm anim" style="--i:1">Two documents carry the detail</h2>
+      <div class="links">
+        <span class="anim" style="--i:2"><a href="https://claude.ai/code/artifact/dd7d9539-57d7-46af-b448-b68695035756">The one-pager</a> &mdash; the funnel, the offer, the four weeks, the cost.</span>
+        <span class="anim" style="--i:3"><a href="https://claude.ai/code/artifact/fae035bb-7f5d-4aba-99e1-dae90249d579">The full guide</a> &mdash; every setting, menu path and workflow step.</span>
+      </div>
+      <p class="note anim" style="--i:4">Nothing is built yet. It starts when David settles the guarantee.</p>
+    </section>
+
+  </div>
+
+  <div class="ctl">
+    <button class="play" id="play" aria-label="Play"><svg id="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="step" id="prev" aria-label="Previous chapter">&larr;</button>
+    <button class="step" id="next" aria-label="Next chapter">&rarr;</button>
+    <div class="track" id="track" role="slider" tabindex="0" aria-label="Timeline" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="fill"></i></div>
+    <span class="time" id="time">0:00 / 0:00</span>
+  </div>
+  <nav class="chapters" id="chapters" aria-label="Chapters"></nav>
+
+  <footer>Press space to play or pause, arrow keys to move a chapter. To send this as a file, screen-record the frame &mdash; on a Mac, Shift+Cmd+5 and drag over the player. Figures used as examples are placeholders until Claudia verifies them.</footer>
+</div>
+
+<script>
+(function(){
+  var scenes = [].slice.call(document.querySelectorAll('.scene'));
+  var durs = scenes.map(function(s){ return parseFloat(s.dataset.dur) || 10; });
+  var total = durs.reduce(function(a,b){ return a+b; }, 0);
+  var starts = []; durs.reduce(function(a,d,i){ starts[i]=a; return a+d; }, 0);
+  var idx = 0, playing = false, t = 0, last = null;
+  var fill = document.getElementById('fill'), track = document.getElementById('track');
+  var timeEl = document.getElementById('time'), icon = document.getElementById('icon');
+  var playBtn = document.getElementById('play'), chapters = document.getElementById('chapters');
+  var PLAY = 'M8 5v14l11-7z', PAUSE = 'M6 5h4v14H6zM14 5h4v14h-4z';
+
+  scenes.forEach(function(s, i){
+    var b = document.createElement('button');
+    b.textContent = s.dataset.ch;
+    b.addEventListener('click', function(){ go(i); });
+    chapters.appendChild(b);
+    var tick = document.createElement('b');
+    tick.style.left = (starts[i] / total * 100) + '%';
+    if (i) track.appendChild(tick);
+  });
+  var chapterBtns = [].slice.call(chapters.children);
+
+  function fmt(s){ s = Math.max(0, Math.round(s)); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+
+  function paint(){
+    var pct = t / total * 100;
+    fill.style.width = pct + '%';
+    track.setAttribute('aria-valuenow', Math.round(pct));
+    timeEl.textContent = fmt(t) + ' / ' + fmt(total);
+  }
+
+  function show(i){
+    scenes.forEach(function(s, j){ s.classList.toggle('is-live', j === i); });
+    chapterBtns.forEach(function(b, j){ b.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+  }
+
+  function go(i, keepPlaying){
+    idx = (i + scenes.length) % scenes.length;
+    t = starts[idx];
+    show(idx); paint();
+    if (!keepPlaying) pause();
+  }
+
+  function tick(now){
+    if (!playing) return;
+    if (last === null) last = now;
+    t += (now - last) / 1000; last = now;
+    if (t >= total){ t = total; paint(); pause(); return; }
+    var i = idx;
+    while (i + 1 < scenes.length && t >= starts[i+1]) i++;
+    if (i !== idx){ idx = i; show(idx); }
+    paint();
+    requestAnimationFrame(tick);
+  }
+
+  function play(){
+    if (t >= total){ t = 0; idx = 0; show(0); }
+    playing = true; last = null;
+    icon.firstElementChild.setAttribute('d', PAUSE);
+    playBtn.setAttribute('aria-label', 'Pause');
+    requestAnimationFrame(tick);
+  }
+  function pause(){
+    playing = false; last = null;
+    icon.firstElementChild.setAttribute('d', PLAY);
+    playBtn.setAttribute('aria-label', 'Play');
+  }
+
+  playBtn.addEventListener('click', function(){ playing ? pause() : play(); });
+  document.getElementById('next').addEventListener('click', function(){ go(idx + 1, playing); if (playing) { last = null; requestAnimationFrame(tick); } });
+  document.getElementById('prev').addEventListener('click', function(){ go(idx - 1, playing); if (playing) { last = null; requestAnimationFrame(tick); } });
+
+  track.addEventListener('click', function(e){
+    var r = track.getBoundingClientRect();
+    t = Math.min(total, Math.max(0, (e.clientX - r.left) / r.width * total));
+    var i = 0; while (i + 1 < scenes.length && t >= starts[i+1]) i++;
+    idx = i; show(idx); paint();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.target.tagName === 'A') return;
+    if (e.key === ' '){ e.preventDefault(); playing ? pause() : play(); }
+    if (e.key === 'ArrowRight'){ e.preventDefault(); go(idx + 1); }
+    if (e.key === 'ArrowLeft'){ e.preventDefault(); go(idx - 1); }
+  });
+
+  show(0); paint();
+})();
+</script>
