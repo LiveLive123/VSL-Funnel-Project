@@ -65,6 +65,7 @@ li::marker{color:var(--muted)}
 .steps li span{color:var(--muted);font-size:13px}
 figure{margin:10px 0 20px}
 figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;max-width:70ch}
 table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 14px}
 th{text-align:left;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 8px 6px 0;border-bottom:1px solid var(--line-2)}
 td{padding:7px 8px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
@@ -186,6 +187,88 @@ footer{border-top:1px solid var(--line);padding-top:14px;margin-top:32px;font-si
     <tr><td>Daniel</td><td>On camera. Every owner conversation; calls the didn't-book list same day; marks attended / no-show.</td></tr>
     <tr><td>David's VSL contact</td><td>Vets the script, the video and the pages before ads run.</td></tr>
   </table></div>
+
+  <h2><span class="n">&#8212;</span>The platforms, and how they connect</h2>
+  <p>Three lanes. Make the video (top), run the funnel (middle, all inside GoHighLevel), measure (bottom). Every arrow is a real connection: a video file, an embed code, a DNS record, a pixel, a calendar sync.</p>
+  <figure>
+  <svg viewBox="0 0 900 430" role="img" aria-label="How the platforms connect: the script goes to Daniel's filming and to ElevenLabs for narration, both edited in CapCut and uploaded to the video host, whose embed code sits on the GoHighLevel page. Meta ads send owners to GoHighLevel, which runs the survey, calendar, pipeline and workflows, sends email and SMS, syncs Daniel's Google Calendar and Zoom, and sends conversion events back to Meta. GoDaddy provides the two subdomains, and GoHighLevel, Meta and the video host feed the weekly report." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="12">
+    <defs><marker id="pfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+    <g font-family="IBM Plex Mono, Consolas, monospace" font-size="10.5" fill="var(--muted)" letter-spacing="1.5">
+      <text x="12" y="40">MAKE THE VIDEO</text>
+      <text x="12" y="170">RUN THE FUNNEL</text>
+      <text x="12" y="308">MEASURE</text>
+    </g>
+    <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#pfa)">
+      <path d="M212,80 L240,80"/><path d="M400,80 L428,80"/><path d="M588,80 L616,80"/>
+      <path d="M700,110 L700,150 L560,150 L560,182"/>
+      <path d="M212,230 L240,230"/>
+      <path d="M700,230 L728,230"/>
+      <path d="M560,290 L560,318"/>
+      <path d="M240,260 L212,260"/>
+      <path d="M470,200 L470,148"/>
+      <path d="M340,318 L340,290"/>
+      <path d="M150,290 L150,318"/>
+      <path d="M700,318 L700,290"/>
+    </g>
+    <g fill="var(--ink)">
+      <rect x="40" y="55" width="172" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="126" y="77" text-anchor="middle" font-weight="600">Claude / ChatGPT</text>
+      <text x="126" y="95" text-anchor="middle" fill="var(--muted)" font-size="11">script in a Google Doc</text>
+      <rect x="240" y="55" width="160" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="320" y="77" text-anchor="middle" font-weight="600">Daniel on camera</text>
+      <text x="320" y="95" text-anchor="middle" fill="var(--muted)" font-size="11">+ ElevenLabs for narration</text>
+      <rect x="428" y="55" width="160" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="508" y="77" text-anchor="middle" font-weight="600">CapCut</text>
+      <text x="508" y="95" text-anchor="middle" fill="var(--muted)" font-size="11">edit, slides, captions</text>
+      <rect x="616" y="55" width="168" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="700" y="77" text-anchor="middle" font-weight="600">Video host</text>
+      <text x="700" y="95" text-anchor="middle" fill="var(--muted)" font-size="11">hosts it, embed code</text>
+    </g>
+    <g fill="var(--ink)">
+      <rect x="40" y="200" width="172" height="90" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="126" y="224" text-anchor="middle" font-weight="600">Meta Ads</text>
+      <text x="126" y="242" text-anchor="middle" fill="var(--muted)" font-size="11">ads &rarr; the page</text>
+      <text x="126" y="258" text-anchor="middle" fill="var(--muted)" font-size="11">pixel + Conversions API</text>
+      <text x="126" y="276" text-anchor="middle" fill="var(--muted)" font-size="11">&larr; booked-call events</text>
+      <rect x="240" y="182" width="460" height="108" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+      <text x="470" y="204" text-anchor="middle" font-weight="600" fill="var(--accent-text)">GoHighLevel &middot; owners.liveluxe.com.au</text>
+      <g font-size="11" fill="var(--ink-2)">
+        <rect x="254" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="294" y="233" text-anchor="middle">VSL page</text>
+        <rect x="342" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="382" y="233" text-anchor="middle">Survey</text>
+        <rect x="430" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="470" y="233" text-anchor="middle">Calendar</text>
+        <rect x="518" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="558" y="233" text-anchor="middle">Pipeline</text>
+        <rect x="606" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="646" y="233" text-anchor="middle">Workflows</text>
+        <text x="470" y="266" text-anchor="middle">email from lc.liveluxe.com.au &middot; SMS from the GHL number &middot; Daniel's cards</text>
+        <text x="470" y="282" text-anchor="middle" fill="var(--muted)">subdomains come from GoDaddy DNS &middot; video embedded from the host</text>
+      </g>
+      <rect x="728" y="200" width="150" height="90" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="803" y="224" text-anchor="middle" font-weight="600">Daniel</text>
+      <text x="803" y="242" text-anchor="middle" fill="var(--muted)" font-size="11">Google Calendar + Zoom</text>
+      <text x="803" y="258" text-anchor="middle" fill="var(--muted)" font-size="11">synced from GHL calendar</text>
+      <text x="803" y="276" text-anchor="middle" fill="var(--muted)" font-size="11">works the pipeline cards</text>
+    </g>
+    <g fill="var(--ink)">
+      <rect x="40" y="318" width="220" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="150" y="340" text-anchor="middle" font-weight="600">GoDaddy DNS</text>
+      <text x="150" y="358" text-anchor="middle" fill="var(--muted)" font-size="11">2 records: owners. and lc.</text>
+      <rect x="280" y="318" width="120" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="340" y="340" text-anchor="middle" font-weight="600">Meta numbers</text>
+      <text x="340" y="358" text-anchor="middle" fill="var(--muted)" font-size="11">spend, CPL, CPBC</text>
+      <rect x="470" y="318" width="180" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="560" y="340" text-anchor="middle" font-weight="600">GHL numbers</text>
+      <text x="560" y="358" text-anchor="middle" fill="var(--muted)" font-size="11">leads, booked, show, close</text>
+      <rect x="640" y="318" width="120" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="700" y="340" text-anchor="middle" font-weight="600">Video host</text>
+      <text x="700" y="358" text-anchor="middle" fill="var(--muted)" font-size="11">play %, retention</text>
+      <rect x="280" y="392" width="480" height="30" rx="6" fill="var(--amber-soft)" stroke="none"/>
+      <text x="520" y="411" text-anchor="middle" font-weight="600" fill="var(--amber-text)">Weekly report &mdash; pulled by Claude through the three APIs</text>
+    </g>
+    <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#pfa)">
+      <path d="M340,370 L340,390"/><path d="M560,370 L560,390"/><path d="M700,370 L700,390"/>
+    </g>
+  </svg>
+  <figcaption>Ten platforms, but only one of them is where the work happens: everything between the ad click and the signed agreement lives inside GoHighLevel. Each connection is set up once &mdash; the <a href="https://claude.ai/code/artifact/fae035bb-7f5d-4aba-99e1-dae90249d579">full guide</a> lists them in build order.</figcaption>
+  </figure>
 
   <h2><span class="n">&#8212;</span>What it costs to run</h2>
   <div class="tscroll"><table class="cost">
