@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+<title>Live Luxe Funnel Plan &amp; Platforms</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f5f6f4; --surface:#ffffff; --ink:#17201f; --ink-2:#3a4442; --muted:#66716e;
+  --line:#dde2df; --line-2:#c7cecb;
+  --accent:#164a46; --accent-ink:#ffffff; --accent-soft:#e3efec; --accent-text:#164a46;
+  --amber:#a8690f; --amber-soft:#fbf1df; --amber-text:#7a4b06;
+  --blue-soft:#e4ecf5; --blue-text:#2b4a6f;
+  --rose-soft:#f7e6e4; --rose-text:#8a2f27;
+  --code:#eef1ef;
+  --display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0f1513; --surface:#161d1b; --ink:#e7ebe9; --ink-2:#c3cbc8; --muted:#8e9a96;
+    --line:#26302d; --line-2:#37433f;
+    --accent:#5fb9ab; --accent-ink:#0f1513; --accent-soft:#17302c; --accent-text:#8fd3c7;
+    --amber:#e0a34a; --amber-soft:#2d2214; --amber-text:#f1c98a;
+    --blue-soft:#1b2836; --blue-text:#9fc0e6;
+    --rose-soft:#33201e; --rose-text:#f0a49b;
+    --code:#1d2523;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0f1513; --surface:#161d1b; --ink:#e7ebe9; --ink-2:#c3cbc8; --muted:#8e9a96;
+  --line:#26302d; --line-2:#37433f;
+  --accent:#5fb9ab; --accent-ink:#0f1513; --accent-soft:#17302c; --accent-text:#8fd3c7;
+  --amber:#e0a34a; --amber-soft:#2d2214; --amber-text:#f1c98a;
+  --blue-soft:#1b2836; --blue-text:#9fc0e6;
+  --rose-soft:#33201e; --rose-text:#f0a49b;
+  --code:#1d2523;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15.5px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent-text)}
+.wrap{max-width:1120px;margin:0 auto;padding:32px 24px 72px}
+@media (max-width:640px){.wrap{padding:20px 14px 60px}}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);margin:0 0 12px}
+h1{font:700 34px/1.1 var(--display);letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+.lede{font-size:16.5px;color:var(--ink-2);max-width:70ch;margin:0 0 6px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin:10px 0 22px;font:400 12.5px/1.5 var(--mono);color:var(--muted)}
+h2{font:600 21px/1.2 var(--display);letter-spacing:-.01em;margin:34px 0 10px}
+p{max-width:70ch;margin:0 0 10px}
+code{font-family:var(--mono);font-size:12.5px;background:var(--code);padding:1px 5px;border-radius:3px}
+.map{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px;overflow:auto}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:12.5px;color:var(--muted);margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:10px 0 18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.card .z{font:500 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:0 0 6px;color:var(--muted)}
+.card h4{font:600 15px/1.3 var(--display);margin:0 0 6px}
+.card p{font-size:13.5px;margin:0 0 6px;color:var(--ink-2)}
+.card .c{font-size:12.5px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 14px}
+th{text-align:left;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 8px 6px 0;border-bottom:1px solid var(--line-2)}
+td{padding:7px 8px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+#conn td:first-child,#conn td:nth-child(2){font-weight:600;white-space:nowrap}
+.tscroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);padding-top:14px;margin-top:28px;font-size:12.5px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin:8px 0 12px}
+.box .k{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px;color:var(--muted)}
+.box.decision{background:var(--amber-soft);border-color:transparent;color:var(--amber-text)}
+.box.decision .k{color:var(--amber)}
+.box.note{background:var(--blue-soft);border-color:transparent;color:var(--blue-text)}
+.box.note .k{color:var(--blue-text)}
+.box p:last-child,.box ol:last-child,.box ul:last-child{margin-bottom:0}
+.promise{font:600 18px/1.35 var(--display);margin:0}
+ol,ul{padding-left:20px;margin:0 0 10px}
+li{margin:0 0 5px}
+li::marker{color:var(--muted)}
+.steps li b{font-weight:600}
+.steps li span{color:var(--muted);font-size:13px}
+figure{margin:10px 0 18px}
+figure svg{width:100%;height:auto;display:block}
+h2 .n{font:500 12px/1 var(--mono);color:var(--muted);margin-right:10px}
+.new{display:inline-block;font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--blue-soft);color:var(--blue-text);border-radius:3px;padding:3px 6px;margin-left:6px;vertical-align:middle}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Live Luxe &middot; Owner acquisition</p>
+  <h1>The Live Luxe owner funnel: plan and platforms</h1>
+  <p class="lede">The funnel, the offer, the platform map, the order of work, who does what, then the detail on every tool and connection. One page, top to bottom.</p>
+  <div class="meta"><span>4 Sep 2026 &middot; updated with Daniel's notes</span><span>Not being built yet</span><span>Full detail: <a href="https://claude.ai/code/artifact/85a8068c-8d1d-411f-95c5-1365b295f05f">Playbook</a> &middot; <a href="https://claude.ai/code/artifact/1371db60-3648-49e9-96a4-85730f0844c2">Build Guide</a> &middot; <a href="https://claude.ai/code/artifact/62125cf4-50bc-4a35-a339-fb6b918b45b9">Landing page example</a></span></div>
+
+  <div class="box note">
+    <p class="k">What changed on 4 Sep (Slack, Daniel)</p>
+    <ul>
+      <li><b>Daniel goes on camera.</b> He has made short videos at his last company and will do the VSL, a behind-the-scenes piece, and a showcase of our premium apartments. Personal statements beat AI for a high-trust service.</li>
+      <li><b>AI voice-over stays for narrated parts</b> (slides, numbers, B-roll). The Live Luxe voice in ElevenLabs is still useful there.</li>
+      <li><b>David has found someone with VSL funnel experience</b> who will help and vet what we build. Pages, script and video go past them before ads run.</li>
+    </ul>
+  </div>
+
+  <section id="p1">
+  <p>Ads send Melbourne apartment owners to a page with a short video of Daniel and one guarantee. They answer six questions, book a call, Daniel closes.</p>
+  <figure>
+    <svg viewBox="0 0 880 300" role="img" aria-label="Funnel map" font-family="IBM Plex Sans, Segoe UI, sans-serif">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+      <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#ar)">
+        <path d="M112,110 L160,110"/><path d="M312,110 L360,110"/><path d="M512,110 L560,110"/><path d="M712,110 L760,110"/>
+        <path d="M436,150 L436,205"/><path d="M236,150 L236,205"/><path d="M312,240 L360,240"/><path d="M512,240 L560,240"/>
+      </g>
+      <g font-size="12.5" fill="var(--ink)">
+        <rect x="12" y="70" width="100" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="62" y="103" text-anchor="middle" font-weight="600">Meta ads</text>
+        <text x="62" y="122" text-anchor="middle" fill="var(--muted)" font-size="11.5">owner-targeted</text>
+        <rect x="160" y="70" width="152" height="80" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="236" y="97" text-anchor="middle" font-weight="600" fill="var(--accent-text)">VSL page</text>
+        <text x="236" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">headline &middot; Daniel's video &middot; button</text>
+        <text x="236" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">survey on the same page</text>
+        <rect x="360" y="70" width="152" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="436" y="97" text-anchor="middle" font-weight="600">Survey qualifies</text>
+        <text x="436" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">six questions,</text>
+        <text x="436" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">contact details last</text>
+        <rect x="560" y="70" width="152" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="636" y="97" text-anchor="middle" font-weight="600">Booking page</text>
+        <text x="636" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">"You're pre-qualified"</text>
+        <text x="636" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">pick a time with Daniel</text>
+        <rect x="760" y="70" width="108" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="814" y="103" text-anchor="middle" font-weight="600">Thank-you</text>
+        <text x="814" y="122" text-anchor="middle" fill="var(--muted)" font-size="11.5">"confirm your call"</text>
+        <rect x="160" y="205" width="152" height="70" rx="6" fill="var(--rose-soft)" stroke="none"/>
+        <text x="236" y="233" text-anchor="middle" font-weight="600" fill="var(--rose-text)">Not qualified</text>
+        <text x="236" y="252" text-anchor="middle" fill="var(--rose-text)" font-size="11.5">polite sorry page</text>
+        <rect x="360" y="205" width="152" height="70" rx="6" fill="var(--amber-soft)" stroke="none"/>
+        <text x="436" y="228" text-anchor="middle" font-weight="600" fill="var(--amber-text)">Qualified, didn't book</text>
+        <text x="436" y="246" text-anchor="middle" fill="var(--amber-text)" font-size="11.5">email in 30 min &middot; SMS</text>
+        <text x="436" y="262" text-anchor="middle" fill="var(--amber-text)" font-size="11.5">Daniel calls same day</text>
+        <rect x="560" y="205" width="152" height="70" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="636" y="233" text-anchor="middle" font-weight="600">The call</text>
+        <text x="636" y="252" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">Daniel closes &rarr; onboarding</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="grid2">
+    <div>
+      <div class="box">
+        <p class="k">The offer</p>
+        <p class="promise">"We'll earn you more than your long-term rent within 12 months &mdash; or we pay you the difference plus $10,000."</p>
+      </div>
+      <div class="box">
+        <p class="k">How we sell it to investors</p>
+        <ul>
+          <li>3&ndash;6 minute video. Direct, no hype.</li>
+          <li>Daniel on camera, filmed in one of our premium apartments. The person in the video is the person on the call.</li>
+          <li>Say the management fee in the video.</li>
+          <li>Real numbers, under-claimed. The guarantee is the bold part.</li>
+          <li>One ask: answer six questions, book a call.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="box decision">
+        <p class="k">David decides first</p>
+        <ol>
+          <li>What "beat your rent" measures: net to owner vs current lease, or vs an appraisal.</li>
+          <li>$10k on top of the shortfall, or the cap.</li>
+          <li>Eligibility: suburbs, minimum rent, furnished, lease-end window.</li>
+          <li>The fee we state.</li>
+          <li>Which apartment Daniel films in, and the ElevenLabs voice for the narrated parts.</li>
+          <li>Budget and the week-4 kill number.</li>
+          <li>When his VSL contact reviews: script stage, or finished pages.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <h2><span class="n">&#8212;</span>Platforms and how they connect</h2>
+  <p>Three lanes. Make the video (top), run the funnel (middle, all inside GoHighLevel), measure (bottom). Arrows are the real connections: a video file, an embed code, a DNS record, a pixel, a calendar sync. The detail for every tool and connection is at the bottom of the page.</p>
+  <div class="map"><figure style="margin:0">
+  <svg viewBox="0 0 900 430" role="img" aria-label="How the platforms connect: script to Daniel's filming and ElevenLabs voice-over, edited in CapCut or HeyGen, hosted on Wistia, embedded on the GoHighLevel page; Meta ads send owners to GoHighLevel, which runs the survey, calendar, pipeline and workflows, sends email and SMS, syncs Daniel's Google Calendar and Zoom, and sends conversion events back to Meta; GoDaddy provides the subdomains; GoHighLevel, Meta and Wistia feed the weekly report." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="12">
+    <defs><marker id="pfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+    <g font-family="IBM Plex Mono, Consolas, monospace" font-size="10.5" fill="var(--muted)" letter-spacing="1.5">
+      <text x="12" y="40">MAKE THE VIDEO</text>
+      <text x="12" y="170">RUN THE FUNNEL</text>
+      <text x="12" y="308">MEASURE</text>
+    </g>
+    <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#pfa)">
+      <path d="M212,80 L240,80"/><path d="M400,80 L428,80"/><path d="M588,80 L616,80"/>
+      <path d="M700,110 L700,150 L560,150 L560,182"/>
+      <path d="M212,230 L240,230"/>
+      <path d="M700,230 L728,230"/>
+      <path d="M560,290 L560,318"/>
+      <path d="M240,260 L212,260"/>
+      <path d="M470,200 L470,148"/>
+      <path d="M340,318 L340,290"/>
+      <path d="M150,290 L150,318"/>
+      <path d="M700,318 L700,290"/>
+    </g>
+    <g fill="var(--ink)">
+      <rect x="40" y="55" width="172" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="126" y="77" text-anchor="middle" font-weight="600">Claude / ChatGPT</text>
+      <text x="126" y="95" text-anchor="middle" fill="var(--muted)" font-size="11">script in a Google Doc</text>
+      <rect x="240" y="55" width="160" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="320" y="77" text-anchor="middle" font-weight="600">Daniel on camera</text>
+      <text x="320" y="95" text-anchor="middle" fill="var(--muted)" font-size="11">+ ElevenLabs for narration</text>
+      <rect x="428" y="55" width="160" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="508" y="77" text-anchor="middle" font-weight="600">CapCut / HeyGen</text>
+      <text x="508" y="95" text-anchor="middle" fill="var(--muted)" font-size="11">edit, slides, captions</text>
+      <rect x="616" y="55" width="168" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="700" y="77" text-anchor="middle" font-weight="600">Wistia</text>
+      <text x="700" y="95" text-anchor="middle" fill="var(--muted)" font-size="11">hosts it, embed code</text>
+    </g>
+    <g fill="var(--ink)">
+      <rect x="40" y="200" width="172" height="90" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="126" y="224" text-anchor="middle" font-weight="600">Meta Ads</text>
+      <text x="126" y="242" text-anchor="middle" fill="var(--muted)" font-size="11">ads &rarr; the page</text>
+      <text x="126" y="258" text-anchor="middle" fill="var(--muted)" font-size="11">pixel + Conversions API</text>
+      <text x="126" y="276" text-anchor="middle" fill="var(--muted)" font-size="11">&larr; booked-call events</text>
+      <rect x="240" y="182" width="460" height="108" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+      <text x="470" y="204" text-anchor="middle" font-weight="600" fill="var(--accent-text)">GoHighLevel &middot; owners.liveluxe.com.au</text>
+      <g font-size="11" fill="var(--ink-2)">
+        <rect x="254" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="294" y="233" text-anchor="middle">VSL page</text>
+        <rect x="342" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="382" y="233" text-anchor="middle">Survey</text>
+        <rect x="430" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="470" y="233" text-anchor="middle">Calendar</text>
+        <rect x="518" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="558" y="233" text-anchor="middle">Pipeline</text>
+        <rect x="606" y="216" width="80" height="26" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="646" y="233" text-anchor="middle">Workflows</text>
+        <text x="470" y="266" text-anchor="middle">email from lc.liveluxe.com.au &middot; SMS from the GHL number &middot; Daniel's cards</text>
+        <text x="470" y="282" text-anchor="middle" fill="var(--muted)">subdomains come from GoDaddy DNS &middot; video embedded from Wistia</text>
+      </g>
+      <rect x="728" y="200" width="150" height="90" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="803" y="224" text-anchor="middle" font-weight="600">Daniel</text>
+      <text x="803" y="242" text-anchor="middle" fill="var(--muted)" font-size="11">Google Calendar + Zoom</text>
+      <text x="803" y="258" text-anchor="middle" fill="var(--muted)" font-size="11">synced from GHL calendar</text>
+      <text x="803" y="276" text-anchor="middle" fill="var(--muted)" font-size="11">works the pipeline cards</text>
+    </g>
+    <g fill="var(--ink)">
+      <rect x="40" y="318" width="220" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="150" y="340" text-anchor="middle" font-weight="600">GoDaddy DNS</text>
+      <text x="150" y="358" text-anchor="middle" fill="var(--muted)" font-size="11">2 records: owners. and lc.</text>
+      <rect x="280" y="318" width="120" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="340" y="340" text-anchor="middle" font-weight="600">Meta numbers</text>
+      <text x="340" y="358" text-anchor="middle" fill="var(--muted)" font-size="11">spend, CPL, CPBC</text>
+      <rect x="470" y="318" width="180" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="560" y="340" text-anchor="middle" font-weight="600">GHL numbers</text>
+      <text x="560" y="358" text-anchor="middle" fill="var(--muted)" font-size="11">leads, booked, show, close</text>
+      <rect x="640" y="318" width="120" height="52" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+      <text x="700" y="340" text-anchor="middle" font-weight="600">Wistia</text>
+      <text x="700" y="358" text-anchor="middle" fill="var(--muted)" font-size="11">play %, retention</text>
+      <rect x="280" y="392" width="480" height="30" rx="6" fill="var(--amber-soft)" stroke="none"/>
+      <text x="520" y="411" text-anchor="middle" font-weight="600" fill="var(--amber-text)">Weekly report &mdash; pulled by Claude through the GHL, Meta and Wistia APIs</text>
+    </g>
+    <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#pfa)">
+      <path d="M340,370 L340,390"/><path d="M560,370 L560,390"/><path d="M700,370 L700,390"/>
+    </g>
+  </svg>
+  <figcaption>Three lanes. Make the video (top), run the funnel (middle, all inside GoHighLevel), measure (bottom). Arrows are the actual connections: a video file, an embed code, a DNS record, a pixel, a calendar sync.</figcaption>
+</figure></div>
+
+  <h2><span class="n">&#8212;</span>Order of work, about four weeks</h2>
+  <ol class="steps">
+    <li><b>Research</b> &mdash; six answers about us; owners' own words from PropertyChat, Reddit and competitor reviews. <span>Jivonz, 2 days</span></li>
+    <li><b>Test the hook</b> &mdash; five image ads, one week, cheapest lead wins. <span>Jivonz, 1 week</span></li>
+    <li><b>Script</b> &mdash; copy the structure of one proven VSL, three AI drafts, edit one, three openings. Written to be spoken by Daniel. <span>Jivonz + Daniel, David and his VSL contact approve</span></li>
+    <li><b>Film</b> &mdash; Daniel on camera in a premium apartment: the VSL body, three openings, the thank-you and reminder pieces, a behind-the-scenes short. ElevenLabs voice-over for the numbers and slide sections. <span>Daniel, 1 day filming; Jivonz edits, 3 days</span></li>
+    <li><b>Build</b> &mdash; GoHighLevel: pipeline, survey, Daniel's calendar, five pages, four workflows. <span>Jivonz, 5 days</span></li>
+    <li><b>Vet</b> &mdash; David's VSL contact reviews script, video and pages; fix what they flag. <span>1&ndash;2 days</span></li>
+    <li><b>Test</b> &mdash; every path with a real phone; David walks it on his. <span>1 day</span></li>
+    <li><b>Ads</b> &mdash; three ads, $50/day, one test a week; go/no-go at week 4. <span>Jivonz + David</span></li>
+  </ol>
+
+  <h2><span class="n">&#8212;</span>Who does what</h2>
+  <div class="tscroll"><table>
+    <tr><th>David</th><td>The guarantee, the fee, sign-off on every video and script, the budget. Brings in his VSL contact.</td></tr>
+    <tr><th>Claudia</th><td>Real numbers for the script and pages; the guarantee calculation; onboarding after the close.</td></tr>
+    <tr><th>Jivonz</th><td>Research, hook ads, editing the videos, the whole GoHighLevel build, pixel, ads, weekly numbers.</td></tr>
+    <tr><th>Daniel</th><td>On camera for the VSL, the behind-the-scenes and property showcase videos. Every owner conversation; calls the didn't-book list same day; marks attended / no-show.</td></tr>
+    <tr><th>David's VSL contact <span class="new">new</span></th><td>Vets the script, the video and the pages before ads run. We learn their playbook as we go.</td></tr>
+  </table></div>
+
+  <h2><span class="n">&#8212;</span>Numbers we watch weekly</h2>
+  <p>Play rate (over 30%) &middot; retention (no cliff in the first 20 s) &middot; cost per booked call &middot; show rate &middot; close rate &middot; cost per owner signed vs one apartment's first-year fee.</p>
+  </section>
+
+  <section id="p2">
+  <h2>Platform detail</h2>
+  <p>Every tool on the map above: what it does, who owns it, what it costs, and every connection in build order.</p>
+  <h2>What each platform does</h2>
+  <div class="grid" id="cards"></div>
+
+  <h2>Every connection, in build order</h2>
+  <div class="tscroll"><table id="conn">
+    <tr><th>#</th><th>From &rarr; to</th><th>What passes across</th><th>How it's set up</th></tr>
+  </table></div>
+  </section>
+
+  <footer>Costs are approximate and in US dollars unless noted; check current pricing before signing up. Figures used as examples are placeholders until Claudia verifies them. The liveluxe.com.au DNS zone is in Terence Mok's GoDaddy account &mdash; the two records need his access. The Playbook and Build Guide still describe the earlier AI-only video plan in their video sections; this page is current. Detail for every step is in the <a href="https://claude.ai/code/artifact/1371db60-3648-49e9-96a4-85730f0844c2">Build Guide</a>.</footer>
+</div>
+
+<script>
+const NODES = [
+  {id:'claude', zone:'make', title:'Claude / ChatGPT', does:'Writes the research doc, the script and the three openings, in Daniel\'s speaking voice; later, pulls the weekly numbers through the APIs.', owner:'Jivonz', cost:'~US$20/mo'},
+  {id:'gdocs', zone:'make', title:'Google Docs & Drive', does:'Holds the research doc, script drafts, the proof pack and the screenshots the pages need.', owner:'Everyone', cost:'Have it'},
+  {id:'camera', zone:'make', title:'Daniel on camera', does:'The VSL body, three openings, thank-you and reminder pieces, a behind-the-scenes short and a premium-apartment showcase. A phone on a tripod, a lapel mic, daylight, one of our best apartments.', owner:'Daniel; David approves', cost:'Lapel mic + tripod ~A$150'},
+  {id:'eleven', zone:'make', title:'ElevenLabs', does:'Voice-over for the narrated parts only: the numbers, the slides, the B-roll. One saved Live Luxe voice, so every narrated section sounds the same.', owner:'Jivonz; David picks the voice', cost:'Creator ~US$22/mo'},
+  {id:'edit', zone:'make', title:'CapCut / HeyGen', does:'Cuts Daniel\'s footage with slides, our apartment photos, a blurred owner statement and a review; burns in captions; exports MP4.', owner:'Jivonz', cost:'CapCut free; HeyGen ~US$29/mo if needed'},
+  {id:'wistia', zone:'make', title:'Wistia', does:'Hosts every video, gives play rate and the retention graph, resumes where a viewer stopped, and produces the embed code the page uses.', owner:'Jivonz', cost:'Free tier, Plus ~US$19/mo'},
+  {id:'godaddy', zone:'run', title:'GoDaddy DNS', does:'Provides the two subdomains: owners.liveluxe.com.au for the funnel and lc.liveluxe.com.au for email sending.', owner:'Terence Mok holds the account', cost:'Already paid'},
+  {id:'meta', zone:'run', title:'Meta Ads', does:'Runs the ads that send owners to the page. The pixel watches the pages; the Conversions API receives booked-call events so Meta optimises for them.', owner:'David owns the business; Jivonz admin', cost:'Ad spend (start $50/day)'},
+  {id:'ghl', zone:'hub', title:'GoHighLevel', does:'The hub. Hosts the five pages and the survey, runs Daniel\'s calendar and the pipeline, sends every email and SMS, and runs the four workflows that move owners from lead to booked call to signed.', owner:'David owns the account; Jivonz builds; Daniel works in it', cost:'Starter ~US$97/mo'},
+  {id:'gcal', zone:'people', title:'Daniel', does:'Takes the calls. His Google Calendar is linked to the GHL calendar (one-way), Zoom is connected so every invite carries the link. He works the pipeline cards and submits the call-feedback form.', owner:'Daniel', cost:'Have it'},
+  {id:'report', zone:'measure', title:'Weekly report', does:'One page every Monday from three sources: GoHighLevel (leads, booked, attended, signed), Meta (spend, cost per lead and per booked call) and Wistia (play rate, retention). Built by Claude through the APIs, the same way the Daily Pickup report is.', owner:'Jivonz / Claude', cost:'-'},
+];
+const EDGES = [
+  {from:'claude', to:'gdocs',  label:'script', n:4, how:'Paste the finished script into the shared Google Doc. Short lines, written to be said out loud.'},
+  {from:'gdocs',  to:'camera', label:'script, teleprompter', n:5, how:'Daniel reads from a teleprompter app on a second phone; one take per section so re-shoots are cheap.'},
+  {from:'gdocs',  to:'eleven', label:'narrated sections', n:5, how:'Copy only the numbers and slide sections into ElevenLabs; render one MP3 per section.'},
+  {from:'camera', to:'edit',   label:'footage', n:6, how:'Phone footage into CapCut; sync the lapel-mic audio; cut to the script.'},
+  {from:'eleven', to:'edit',   label:'MP3s', n:6, how:'Lay the voice-over under the slide and number sections; build the slides over it.'},
+  {from:'edit',   to:'wistia', label:'MP4', n:7, how:'Export 1080p; upload to Wistia; set the thumbnail to Daniel mid-sentence, not a "press play" graphic.'},
+  {from:'wistia', to:'ghl',    label:'embed code to the VSL page', n:7, how:'Wistia: Embed & share, inline embed, paste into a custom-HTML element on the VSL page.'},
+  {from:'godaddy',to:'ghl',    label:'2 DNS records', n:1, how:'GHL Settings: Domains and Email Services show the records; add them in GoDaddy; verify.'},
+  {from:'meta',   to:'ghl',    label:'ad clicks, pixel', n:3, how:'Pixel base code into Funnel Settings, Tracking code (head). Ads link to owners.liveluxe.com.au/apply-ads.'},
+  {from:'ghl',    to:'meta',   label:'CAPI events', n:8, how:'Workflow action "Facebook Conversions API" in W1 (CompleteRegistration) and W2 (Schedule), with the pixel ID and access token.'},
+  {from:'ghl',    to:'gcal',   label:'calendar sync', n:2, how:'Daniel connects Google and Zoom in his GHL profile; the round-robin calendar has him as its only member.'},
+  {from:'gcal',   to:'ghl',    label:'call feedback', n:8, how:'W2 emails Daniel a link to the feedback form with the contact\'s email pre-filled; W4 moves the card.'},
+  {from:'ghl',    to:'report', label:'leads, booked, show, close', n:10, how:'GoHighLevel API (private integration token) read weekly.'},
+  {from:'meta',   to:'report', label:'spend, CPL, CPBC', n:10, how:'Meta Marketing API, ad-account read access.'},
+  {from:'wistia', to:'report', label:'play %, retention', n:10, how:'Wistia stats API.'},
+];
+const ZONE = {make:'Make the video', hub:'The hub', run:'Run the funnel', measure:'Measure', people:'People'};
+const byId = Object.fromEntries(NODES.map(n => [n.id, n]));
+document.getElementById('cards').innerHTML = NODES.map(n => `<div class="card"><p class="z">${ZONE[n.zone]}</p><h4>${n.title}</h4><p>${n.does}</p><p class="c">${n.owner} · ${n.cost}</p></div>`).join('');
+const tbl = document.getElementById('conn');
+[...EDGES].sort((a,b) => a.n - b.n).forEach(e => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${e.n}</td><td>${byId[e.from].title} &rarr; ${byId[e.to].title}</td><td>${e.label}</td><td>${e.how}</td>`;
+  tbl.appendChild(tr);
+});
+</script>
+
+</body>
+</html>
