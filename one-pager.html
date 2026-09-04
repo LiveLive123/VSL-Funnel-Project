@@ -1,0 +1,213 @@
+<title>The Live Luxe Owner Funnel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f5f6f4; --surface:#ffffff; --ink:#17201f; --ink-2:#3a4442; --muted:#66716e;
+  --line:#dde2df; --line-2:#c7cecb;
+  --accent:#164a46; --accent-soft:#e3efec; --accent-text:#164a46;
+  --amber:#a8690f; --amber-soft:#fbf1df; --amber-text:#7a4b06;
+  --blue-soft:#e4ecf5; --blue-text:#2b4a6f;
+  --rose-soft:#f7e6e4; --rose-text:#8a2f27;
+  --code:#eef1ef;
+  --display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0f1513; --surface:#161d1b; --ink:#e7ebe9; --ink-2:#c3cbc8; --muted:#8e9a96;
+    --line:#26302d; --line-2:#37433f;
+    --accent:#5fb9ab; --accent-soft:#17302c; --accent-text:#8fd3c7;
+    --amber:#e0a34a; --amber-soft:#2d2214; --amber-text:#f1c98a;
+    --blue-soft:#1b2836; --blue-text:#9fc0e6;
+    --rose-soft:#33201e; --rose-text:#f0a49b;
+    --code:#1d2523;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0f1513; --surface:#161d1b; --ink:#e7ebe9; --ink-2:#c3cbc8; --muted:#8e9a96;
+  --line:#26302d; --line-2:#37433f;
+  --accent:#5fb9ab; --accent-soft:#17302c; --accent-text:#8fd3c7;
+  --amber:#e0a34a; --amber-soft:#2d2214; --amber-text:#f1c98a;
+  --blue-soft:#1b2836; --blue-text:#9fc0e6;
+  --rose-soft:#33201e; --rose-text:#f0a49b;
+  --code:#1d2523;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15.5px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent-text)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:36px 24px 72px}
+@media (max-width:640px){.wrap{padding:20px 14px 60px}}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);margin:0 0 12px}
+h1{font:700 34px/1.1 var(--display);letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+.lede{font-size:16.5px;color:var(--ink-2);max-width:66ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0 26px;font:400 12.5px/1.5 var(--mono);color:var(--muted)}
+h2{font:600 20px/1.2 var(--display);letter-spacing:-.01em;margin:32px 0 8px;display:flex;gap:12px;align-items:baseline}
+h2 .n{font:500 12px/1 var(--mono);color:var(--muted)}
+p{max-width:68ch;margin:0 0 10px}
+code{font-family:var(--mono);font-size:12.5px;background:var(--code);padding:1px 5px;border-radius:3px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;align-items:start}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:12px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.box .k{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px;color:var(--muted)}
+.box.decision{background:var(--amber-soft);border-color:transparent;color:var(--amber-text)}
+.box.decision .k{color:var(--amber)}
+.box.note{background:var(--blue-soft);border-color:transparent;color:var(--blue-text)}
+.box.note .k{color:var(--blue-text)}
+.box p:last-child,.box ol:last-child,.box ul:last-child{margin-bottom:0}
+.promise{font:600 18px/1.35 var(--display);margin:0;max-width:none}
+ol,ul{padding-left:20px;margin:0 0 10px}
+li{margin:0 0 5px}
+li::marker{color:var(--muted)}
+.steps li b{font-weight:600}
+.steps li span{color:var(--muted);font-size:13px}
+figure{margin:10px 0 20px}
+figure svg{width:100%;height:auto;display:block}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 14px}
+th{text-align:left;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 8px 6px 0;border-bottom:1px solid var(--line-2)}
+td{padding:7px 8px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.who td:first-child,.cost td:first-child{font-weight:600;white-space:nowrap}
+.cost td:nth-child(2),.cost td:nth-child(3){font-variant-numeric:tabular-nums}
+.cost tr.total td{border-bottom:0;font-weight:600}
+.tscroll{overflow-x:auto}
+.watch{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0 0}
+.watch div{border-left:2px solid var(--line-2);padding:2px 0 2px 12px}
+.watch b{display:block;font:600 14px/1.3 var(--display)}
+.watch span{font-size:12.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-top:14px;margin-top:32px;font-size:12.5px;color:var(--muted);max-width:68ch}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Live Luxe &middot; Owner acquisition</p>
+  <h1>The owner funnel on one page</h1>
+  <p class="lede">Ads send Melbourne apartment owners to a page with a short video of Daniel and one guarantee. They answer six questions, book a call, Daniel closes.</p>
+  <div class="meta"><span>4 Sep 2026</span><span>Not being built yet</span><span>Everything in detail: <a href="https://claude.ai/code/artifact/fae035bb-7f5d-4aba-99e1-dae90249d579">the full guide</a></span></div>
+
+  <figure>
+    <svg viewBox="0 0 880 300" role="img" aria-label="Funnel map: Meta ads lead to the VSL page with the survey on it; qualified owners reach the booking calendar and a thank-you page; owners who do not qualify get a polite sorry page; qualified owners who do not book get an email, an SMS and a same-day call from Daniel before the call itself." font-family="IBM Plex Sans, Segoe UI, sans-serif">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+      <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#ar)">
+        <path d="M112,110 L160,110"/><path d="M312,110 L360,110"/><path d="M512,110 L560,110"/><path d="M712,110 L760,110"/>
+        <path d="M436,150 L436,205"/><path d="M236,150 L236,205"/><path d="M312,240 L360,240"/><path d="M512,240 L560,240"/>
+      </g>
+      <g font-size="12.5" fill="var(--ink)">
+        <rect x="12" y="70" width="100" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="62" y="103" text-anchor="middle" font-weight="600">Meta ads</text>
+        <text x="62" y="122" text-anchor="middle" fill="var(--muted)" font-size="11.5">owner-targeted</text>
+        <rect x="160" y="70" width="152" height="80" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="236" y="97" text-anchor="middle" font-weight="600" fill="var(--accent-text)">VSL page</text>
+        <text x="236" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">headline &middot; Daniel's video &middot; button</text>
+        <text x="236" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">survey on the same page</text>
+        <rect x="360" y="70" width="152" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="436" y="97" text-anchor="middle" font-weight="600">Survey qualifies</text>
+        <text x="436" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">six questions,</text>
+        <text x="436" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">contact details last</text>
+        <rect x="560" y="70" width="152" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="636" y="97" text-anchor="middle" font-weight="600">Booking page</text>
+        <text x="636" y="115" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">"You're pre-qualified"</text>
+        <text x="636" y="132" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">pick a time with Daniel</text>
+        <rect x="760" y="70" width="108" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="814" y="103" text-anchor="middle" font-weight="600">Thank-you</text>
+        <text x="814" y="122" text-anchor="middle" fill="var(--muted)" font-size="11.5">"confirm your call"</text>
+        <rect x="160" y="205" width="152" height="70" rx="6" fill="var(--rose-soft)" stroke="none"/>
+        <text x="236" y="233" text-anchor="middle" font-weight="600" fill="var(--rose-text)">Not qualified</text>
+        <text x="236" y="252" text-anchor="middle" fill="var(--rose-text)" font-size="11.5">polite sorry page</text>
+        <rect x="360" y="205" width="152" height="70" rx="6" fill="var(--amber-soft)" stroke="none"/>
+        <text x="436" y="228" text-anchor="middle" font-weight="600" fill="var(--amber-text)">Qualified, didn't book</text>
+        <text x="436" y="246" text-anchor="middle" fill="var(--amber-text)" font-size="11.5">email in 30 min &middot; SMS</text>
+        <text x="436" y="262" text-anchor="middle" fill="var(--amber-text)" font-size="11.5">Daniel calls same day</text>
+        <rect x="560" y="205" width="152" height="70" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+        <text x="636" y="233" text-anchor="middle" font-weight="600">The call</text>
+        <text x="636" y="252" text-anchor="middle" fill="var(--ink-2)" font-size="11.5">Daniel closes &rarr; onboarding</text>
+      </g>
+    </svg>
+  </figure>
+
+  <div class="grid">
+    <div class="stack">
+      <div class="box">
+        <p class="k">The offer</p>
+        <p class="promise">"We'll earn you more than your long-term rent within 12 months &mdash; or we pay you the difference plus $10,000."</p>
+      </div>
+      <div class="box">
+        <p class="k">How we sell it to investors</p>
+        <ul>
+          <li>3&ndash;6 minute video. Direct, no hype.</li>
+          <li>Daniel on camera in one of our premium apartments. The person in the video is the person on the call.</li>
+          <li>Say the management fee in the video.</li>
+          <li>Real numbers, under-claimed. The guarantee is the bold part.</li>
+          <li>One ask: answer six questions, book a call.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="box decision">
+        <p class="k">David decides before anything is built</p>
+        <ol>
+          <li>What "beat your rent" measures: net to owner vs current lease, or vs an appraisal.</li>
+          <li>$10k on top of the shortfall, or the cap.</li>
+          <li>Eligibility: suburbs, minimum rent, furnished, lease-end window.</li>
+          <li>The fee we state.</li>
+          <li>Which apartment Daniel films in, and the ElevenLabs voice for the narrated parts.</li>
+          <li>Budget and the week-4 kill number.</li>
+          <li>When his VSL contact reviews: script stage, or finished pages.</li>
+        </ol>
+      </div>
+      <div class="box note">
+        <p class="k">Changed 4 Sep</p>
+        <ul>
+          <li><b>Daniel goes on camera.</b> He has made videos before and will do the VSL, a behind-the-scenes piece and a premium-apartment showcase. Personal statements beat AI for a high-trust service.</li>
+          <li><b>AI voice stays for the narrated parts</b> &mdash; slides, numbers, B-roll.</li>
+          <li><b>David has a VSL contact</b> who vets the script, video and pages before ads run.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2><span class="n">&#8212;</span>Order of work, about four weeks</h2>
+  <ol class="steps">
+    <li><b>Research</b> &mdash; six answers about us; owners' own words from PropertyChat, Reddit and competitor reviews. <span>Jivonz, 2 days</span></li>
+    <li><b>Test the hook</b> &mdash; five image ads, one week, cheapest lead wins. <span>Jivonz, 1 week</span></li>
+    <li><b>Script</b> &mdash; copy the structure of one proven VSL, three AI drafts, edit one, three openings. Written to be spoken by Daniel. <span>Jivonz + Daniel; David and his VSL contact approve</span></li>
+    <li><b>Film</b> &mdash; Daniel on camera: the VSL body, three openings, thank-you and reminder pieces. AI voice-over for the numbers and slide sections. <span>Daniel, 1 day filming; Jivonz edits, 3 days</span></li>
+    <li><b>Build</b> &mdash; GoHighLevel: pipeline, survey, Daniel's calendar, five pages, four workflows. <span>Jivonz, 5 days</span></li>
+    <li><b>Vet</b> &mdash; David's VSL contact reviews script, video and pages; fix what they flag. <span>1&ndash;2 days</span></li>
+    <li><b>Test</b> &mdash; every path with a real phone; David walks it on his. <span>1 day</span></li>
+    <li><b>Ads</b> &mdash; three ads, $50/day, one test a week; go/no-go at week 4. <span>Jivonz + David</span></li>
+  </ol>
+
+  <h2><span class="n">&#8212;</span>Who does what</h2>
+  <div class="tscroll"><table class="who">
+    <tr><td>David</td><td>The guarantee, the fee, sign-off on every video and script, the budget. Brings in his VSL contact.</td></tr>
+    <tr><td>Claudia</td><td>Real numbers for the script and pages; the guarantee calculation; onboarding after the close.</td></tr>
+    <tr><td>Jivonz</td><td>Research, hook ads, editing the videos, the whole GoHighLevel build, pixel, ads, weekly numbers.</td></tr>
+    <tr><td>Daniel</td><td>On camera. Every owner conversation; calls the didn't-book list same day; marks attended / no-show.</td></tr>
+    <tr><td>David's VSL contact</td><td>Vets the script, the video and the pages before ads run.</td></tr>
+  </table></div>
+
+  <h2><span class="n">&#8212;</span>What it costs to run</h2>
+  <div class="tscroll"><table class="cost">
+    <tr><th>Tool</th><th>Monthly</th><th>Start the trial</th><th>Note</th></tr>
+    <tr><td>GoHighLevel Starter</td><td>US$97</td><td>Day 1 of the build week</td><td>14-day trial, card required. Everything but the video lives here.</td></tr>
+    <tr><td>Vidalytics Starter</td><td>US$24</td><td>When there's an MP4 to upload</td><td>Replaces Wistia: the old US$19 Wistia tier is gone and its retention graph now sits in a US$79 plan.</td></tr>
+    <tr><td>ElevenLabs Creator</td><td>US$22</td><td>Script week</td><td>US$11 the first month. The free tier has no commercial rights, so it is not an option.</td></tr>
+    <tr><td>Claude or ChatGPT</td><td>US$20</td><td>Now</td><td>Research, script drafts, the weekly report.</td></tr>
+    <tr class="total"><td>Running total</td><td>~US$163</td><td></td><td>&asymp;A$250/month, plus A$50/day ad spend.</td></tr>
+  </table></div>
+  <p>Not needed: HeyGen (~US$29) now that Daniel is on camera &mdash; CapCut cuts his footage for free; Zoom Pro (~A$21) &mdash; the calls are 20 minutes and free Zoom allows 40. Canva Pro and CapCut Pro both have trials if we want them for the edit. Prices are from third-party trackers, not the vendors' own pages &mdash; confirm at checkout.</p>
+  <p><b>Timing matters more than any discount.</b> There are no real GoHighLevel coupon codes; the "verified" ones are affiliate links. Its trial is 14 days, and research, hook testing, scripting and filming take three weeks before Jivonz builds anything &mdash; so don't start it until build week. Meta and the DNS access are free and are the two things most likely to stall, so sort those now.</p>
+
+  <h2><span class="n">&#8212;</span>Numbers we watch weekly</h2>
+  <div class="watch">
+    <div><b>Play rate</b><span>over 30%, or the ad and the page don't match</span></div>
+    <div><b>Retention</b><span>no cliff in the first 20 seconds</span></div>
+    <div><b>Cost per booked call</b><span>the number the ads optimise against</span></div>
+    <div><b>Show rate</b><span>attended &divide; booked</span></div>
+    <div><b>Close rate</b><span>agreements &divide; attended</span></div>
+    <div><b>Cost per owner signed</b><span>against one apartment's first-year fee</span></div>
+  </div>
+
+  <footer>Every step, setting and screen is in <a href="https://claude.ai/code/artifact/fae035bb-7f5d-4aba-99e1-dae90249d579">the full guide</a>. Figures used as examples are placeholders until Claudia verifies them; the guarantee wording, fee, eligibility and rent floor are David's calls. The liveluxe.com.au DNS zone sits in Terence Mok's GoDaddy account &mdash; two records need his access.</footer>
+</div>

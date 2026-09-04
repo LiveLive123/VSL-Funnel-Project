@@ -3,19 +3,21 @@
 Planning files for the owner-acquisition funnel (ads → video page → survey → call with Daniel).
 Nothing here is built in GoHighLevel yet.
 
-| File | What it is |
-|---|---|
-| `landing-page.html` | Working example of the VSL page: headline, mock video player (Daniel on camera), one button, six-question survey, booking and sorry previews. Open in a browser. |
-| `plan-and-platforms.html` | The one-page plan: funnel map, offer, platform lanes, order of work, who does what, per-tool detail. Current source of truth (updated 4 Sep 2026 with Daniel's notes). |
-| `build-guide.html` | Click-by-click GoHighLevel build for Jivonz. Its video section still describes the earlier AI-only plan. |
+Two documents, and one page prototype.
 
-Live copies (same content, shareable links):
+| File | What it is | Live link |
+|---|---|---|
+| `one-pager.html` | The whole funnel in one read: map, offer, David's decisions, four-week order of work, who does what, running cost. | https://claude.ai/code/artifact/dd7d9539-57d7-46af-b448-b68695035756 |
+| `funnel-guide.html` | Everything in detail, in 14 sections: offer, research, hook test, script, videos, pages, platforms and cost, the click-by-click GoHighLevel build, ads, test run, checklist, house rules. | https://claude.ai/code/artifact/fae035bb-7f5d-4aba-99e1-dae90249d579 |
+| `landing-page.html` | Working mockup of the VSL page — headline, mock video player, the six-question survey, booking and sorry previews. Open it in a browser; not a document to read. | — |
 
-- Plan & Platforms — https://claude.ai/code/artifact/fae035bb-7f5d-4aba-99e1-dae90249d579
-- Landing page example — https://claude.ai/code/artifact/62125cf4-50bc-4a35-a339-fb6b918b45b9
-- Playbook (v3) — https://claude.ai/code/artifact/85a8068c-8d1d-411f-95c5-1365b295f05f
-- Build Guide — https://claude.ai/code/artifact/1371db60-3648-49e9-96a4-85730f0844c2
-- One-pager — https://claude.ai/code/artifact/dd7d9539-57d7-46af-b448-b68695035756
+Consolidated on 4 Sep 2026 from five overlapping pages. The old playbook, build guide and
+platform map are folded into `funnel-guide.html`; their content is in git history and their
+artifact links are retired.
+
+Current as of the 4 Sep Slack notes: Daniel goes on camera, AI voice-over is kept for the
+narrated sections only, and David's VSL contact vets the script, video and pages before ads run.
 
 Figures in these pages are placeholders until Claudia verifies them. The guarantee wording,
-fee, eligibility and rent floor are David's decisions.
+fee, eligibility and rent floor are David's decisions. Platform prices come from third-party
+trackers, not the vendors' own pages — confirm at checkout.
