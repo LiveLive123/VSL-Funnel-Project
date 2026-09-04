@@ -375,6 +375,100 @@ Then write three alternative openings (30 seconds each) for the same script, one
 
 <section id="platforms">
   <h2><span class="n">9</span>Platforms, connections and what they cost</h2>
+  <h3>The stack: what sits on what</h3>
+<figure>
+  <svg viewBox="0 0 900 540" role="img" aria-label="The funnel's stack in four layers. At the base, the liveluxe.com.au DNS zone in GoDaddy provides three records: owners for the pages, lc for email sending, and a root TXT for Meta domain verification. These resolve to the GoHighLevel sub-account, which holds both what owners see — the VSL page, survey, booking calendar, thank-you and sorry pages — and what runs behind them: contacts and custom fields, the pipeline, workflows W1 to W4, and email and SMS. Meta Ads sends clicks in and receives conversion events back; the LC Phone number carries SMS and calls; the video host supplies the embed code; Daniel's Google Calendar and Zoom sync one way. At the top, a weekly report reads the GoHighLevel, Meta and video host APIs." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="12">
+    <defs><marker id="sk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--line-2)"/></marker></defs>
+
+    <!-- measure -->
+    <rect x="250" y="30" width="400" height="60" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+    <text x="450" y="55" text-anchor="middle" font-weight="600" fill="var(--ink)">Weekly report</text>
+    <text x="450" y="74" text-anchor="middle" font-size="11" fill="var(--muted)">Claude reads three APIs every Monday</text>
+
+    <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#sk)">
+      <path d="M85,200 L85,110 L300,110 L300,92"/>
+      <path d="M815,200 L815,110 L600,110 L600,92"/>
+      <path d="M450,150 L450,92"/>
+    </g>
+    <g font-size="10" fill="var(--muted)">
+      <text x="200" y="104" text-anchor="middle">spend, CPL, CPBC</text>
+      <text x="700" y="104" text-anchor="middle">play %, retention</text>
+      <text x="458" y="126">leads, booked, show, close</text>
+    </g>
+
+    <!-- the platform -->
+    <rect x="210" y="150" width="480" height="240" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <text x="450" y="174" text-anchor="middle" font-weight="600" fill="var(--accent-text)">GoHighLevel sub-account &middot; Live Luxe &ndash; Owners</text>
+    <text x="450" y="192" text-anchor="middle" font-size="10.5" fill="var(--ink-2)">Melbourne time, AUD &middot; David owns it &middot; Jivonz builds &middot; Daniel works it</text>
+
+    <text x="222" y="214" font-family="IBM Plex Mono, Consolas, monospace" font-size="10" letter-spacing="1.2" fill="var(--muted)">WHAT OWNERS SEE</text>
+    <g font-size="10.5" fill="var(--ink-2)">
+      <rect x="222" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="266" y="239" text-anchor="middle">VSL page</text>
+      <rect x="314" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="358" y="239" text-anchor="middle">Survey</text>
+      <rect x="406" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="450" y="239" text-anchor="middle">Booking</text>
+      <rect x="498" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="542" y="239" text-anchor="middle">Thank-you</text>
+      <rect x="590" y="220" width="88" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="634" y="239" text-anchor="middle">Sorry</text>
+    </g>
+
+    <text x="222" y="274" font-family="IBM Plex Mono, Consolas, monospace" font-size="10" letter-spacing="1.2" fill="var(--muted)">WHAT RUNS BEHIND THEM</text>
+    <g font-size="10.5" fill="var(--ink-2)">
+      <rect x="222" y="280" width="111" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="277" y="299" text-anchor="middle">Contacts + fields</text>
+      <rect x="337" y="280" width="111" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="392" y="299" text-anchor="middle">Pipeline</text>
+      <rect x="452" y="280" width="111" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="507" y="299" text-anchor="middle">Workflows W1&ndash;W4</text>
+      <rect x="567" y="280" width="111" height="30" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="622" y="299" text-anchor="middle">Email + SMS</text>
+    </g>
+    <text x="450" y="340" text-anchor="middle" font-size="11" fill="var(--ink-2)">One login holds the pages, the CRM, the calendar and every message we send.</text>
+    <text x="450" y="358" text-anchor="middle" font-size="11" fill="var(--muted)">The alternative was five tools joined by Zapier, each with its own bill and its own way of breaking.</text>
+
+    <!-- attached services, left -->
+    <rect x="20" y="200" width="130" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+    <text x="85" y="224" text-anchor="middle" font-weight="600" fill="var(--ink)">Meta Ads</text>
+    <text x="85" y="242" text-anchor="middle" font-size="10.5" fill="var(--muted)">pixel + Conversions API</text>
+    <text x="85" y="260" text-anchor="middle" font-size="10.5" fill="var(--muted)">David owns, Jivonz admin</text>
+    <rect x="20" y="300" width="130" height="60" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+    <text x="85" y="324" text-anchor="middle" font-weight="600" fill="var(--ink)">LC Phone number</text>
+    <text x="85" y="342" text-anchor="middle" font-size="10.5" fill="var(--muted)">forwards to Daniel</text>
+
+    <!-- attached services, right -->
+    <rect x="750" y="200" width="130" height="60" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+    <text x="815" y="224" text-anchor="middle" font-weight="600" fill="var(--ink)">Video host</text>
+    <text x="815" y="242" text-anchor="middle" font-size="10.5" fill="var(--muted)">Vidalytics</text>
+    <rect x="750" y="280" width="130" height="80" rx="6" fill="var(--surface)" stroke="var(--line-2)"/>
+    <text x="815" y="304" text-anchor="middle" font-weight="600" fill="var(--ink)">Google Calendar</text>
+    <text x="815" y="322" text-anchor="middle" font-size="10.5" fill="var(--muted)">+ Zoom</text>
+    <text x="815" y="340" text-anchor="middle" font-size="10.5" fill="var(--muted)">Daniel's logins</text>
+
+    <g fill="none" stroke="var(--line-2)" stroke-width="1.5" marker-end="url(#sk)">
+      <path d="M150,222 L206,222"/>
+      <path d="M210,252 L154,252"/>
+      <path d="M150,330 L206,330"/>
+      <path d="M750,230 L694,230"/>
+      <path d="M690,320 L746,320"/>
+      <path d="M450,430 L450,394"/>
+    </g>
+    <g font-size="10" fill="var(--muted)">
+      <text x="180" y="216" text-anchor="middle">ad clicks</text>
+      <text x="180" y="246" text-anchor="middle">CAPI events</text>
+      <text x="180" y="324" text-anchor="middle">SMS + calls</text>
+      <text x="720" y="224" text-anchor="middle">embed code</text>
+      <text x="718" y="314" text-anchor="middle">one-way sync</text>
+      <text x="458" y="416">resolves to</text>
+    </g>
+
+    <!-- foundation -->
+    <rect x="210" y="430" width="480" height="90" rx="6" fill="var(--amber-soft)" stroke="none"/>
+    <text x="450" y="454" text-anchor="middle" font-weight="600" fill="var(--amber-text)">liveluxe.com.au &mdash; the DNS zone, in GoDaddy</text>
+    <text x="450" y="471" text-anchor="middle" font-size="10.5" fill="var(--amber-text)">Terence Mok's account, not ours. Nothing above exists until he adds these.</text>
+    <g font-size="10.5" fill="var(--ink-2)">
+      <rect x="222" y="482" width="148" height="28" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="296" y="500" text-anchor="middle">owners. &rarr; the pages</text>
+      <rect x="376" y="482" width="148" height="28" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="450" y="500" text-anchor="middle">lc. &rarr; email sending</text>
+      <rect x="530" y="482" width="148" height="28" rx="4" fill="var(--surface)" stroke="var(--line)"/><text x="604" y="500" text-anchor="middle">root TXT &rarr; Meta</text>
+    </g>
+  </svg>
+  <figcaption>Read it bottom-up: three DNS records carry one GoHighLevel sub-account, which carries everything an owner touches and everything that chases them. The four services on the sides plug in and can each be swapped &mdash; a different video host, a different meeting tool &mdash; without touching the middle. The two layers that cannot be swapped are the ones we don't yet control: the DNS zone sits in someone else's GoDaddy account, and every page, message and pipeline card lives in a single login.</figcaption>
+</figure>
+
+  <h3>The flow: how a lead moves through it</h3>
   <p>Three lanes. Make the video (top), run the funnel (middle, all inside GoHighLevel), measure (bottom). Every arrow is a real connection: a video file, an embed code, a DNS record, a pixel, a calendar sync.</p>
 <figure>
   <svg viewBox="0 0 900 430" role="img" aria-label="How the platforms connect: the script goes to Daniel's filming and to ElevenLabs for narration, both edited in CapCut and uploaded to the video host, whose embed code sits on the GoHighLevel page. Meta ads send owners to GoHighLevel, which runs the survey, calendar, pipeline and workflows, sends email and SMS, syncs Daniel's Google Calendar and Zoom, and sends conversion events back to Meta. GoDaddy provides the two subdomains, and GoHighLevel, Meta and the video host feed the weekly report." font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="12">
